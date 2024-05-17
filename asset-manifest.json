@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Time_Hiking/static/css/main.478466ec.css",
+    "main.css": "/Time_Hiking/static/css/main.a1b1028e.css",
     "main.js": "/Time_Hiking/static/js/main.2d399e77.js",
     "static/media/headerBackground_1.png": "/Time_Hiking/static/media/headerBackground_1.fbfd1aa35f75cbddee07.png",
     "static/media/Gradient Map_.png": "/Time_Hiking/static/media/Gradient Map_.610091051c93125564cd.png",
@@ -14,11 +14,11 @@
     "static/media/Shape-1.png": "/Time_Hiking/static/media/Shape-1.a91a5ab45db216a44586.png",
     "static/media/Shape.png": "/Time_Hiking/static/media/Shape.a8a07efab518df531456.png",
     "index.html": "/Time_Hiking/index.html",
-    "main.478466ec.css.map": "/Time_Hiking/static/css/main.478466ec.css.map",
+    "main.a1b1028e.css.map": "/Time_Hiking/static/css/main.a1b1028e.css.map",
     "main.2d399e77.js.map": "/Time_Hiking/static/js/main.2d399e77.js.map"
   },
   "entrypoints": [
-    "static/css/main.478466ec.css",
+    "static/css/main.a1b1028e.css",
     "static/js/main.2d399e77.js"
   ]
 }
