@@ -26,6 +26,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gn-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -53,6 +55,7 @@
     "@typescript-eslint/parser": "^7.0.1",
     "css-loader": "^6.10.0",
     "eslint": "^8.56.0",
+    "gh-pages": "^6.1.1",
     "mini-css-extract-plugin": "^2.8.0",
     "node-sass": "^9.0.0",
     "sass": "^1.71.0",
