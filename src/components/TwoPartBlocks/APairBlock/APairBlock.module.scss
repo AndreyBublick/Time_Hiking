@@ -1,0 +1,243 @@
+@import '../../../mixins';
+@import '../../../fonts/fonts';
+@import '../../../general-parametrs';
+
+@font-face {
+    font-family: 'Myriad_Pro';
+    src        : url('../../../fonts/Myr_Pro/MyriadPro-Regular.woff2') format('woff2'),
+        url('../../../fonts/Myr_Pro/MyriadPro-Regular.woff') format('woff');
+    font-weight : normal;
+    font-style  : normal;
+    font-display: swap;
+}
+
+///////////////////////////////////////
+@media (min-width:768px) and (max-width:1182px) {
+    /* flex: 0 0 calc(((100% - 40px) * 0.6) + 20px); */
+}
+
+@media (min-width:1182px) {
+    /* flex: 0 0 calc(50% - (0.4 - 0.5) * 1182px); */
+}
+
+///////////////////////////////////////
+/// 
+/// 
+/// 
+/// 
+.content_block {
+    background-color: $orangeLight;
+
+    display: flex;
+
+
+
+
+    &:nth-child(2n-1)>.content>.two_art_blocks__container {
+        max-width: auto;
+        flex-grow: 1;
+        margin   : 0;
+        font-size: 50px;
+    }
+
+    &:nth-child(2n-1) {
+        background-color: $gray;
+
+    }
+
+    &:nth-child(2n-1)>.content>.two_art_blocks__container>.content__body {}
+
+
+    @media (max-width:767px) {
+        flex-direction: column;
+
+        &>.two_art_blocks__image {
+            order: -1;
+        }
+    }
+
+    @media (min-width:768px) {
+        & {
+
+            align-items: center;
+        }
+
+
+        &:nth-child(2n-1)>.two_art_blocks__image {
+
+            order    : -1;
+            transform: translate(0, 0);
+
+        }
+    }
+}
+
+
+.content {
+    @media (min-width:768px) {
+        flex: 0 0 100%;
+
+    }
+
+    overflow: hidden;
+}
+
+.content__body {
+
+
+    @include adapt-value('padding-top', 35, 15, 0);
+    @include adapt-value('padding-bottom', 35, 15, 0);
+
+
+    @media (min-width:768px) {
+        & {
+
+            @include adapt-value('padding-top', 25, 10, 0);
+            @include adapt-value('padding-bottom', 25, 10, 0);
+            flex: 0 0 50%;
+        }
+
+    }
+
+
+
+    &>.content__title {
+
+
+        @include adapt-value('font-size', 58.333, 25, 0);
+        font-family: "Myriad_Pro";
+        color      : rgb(255, 255, 255);
+        line-height: 1.2;
+
+        @include adapt-value('margin-bottom', 53.0, 20, 0);
+
+    }
+
+    &>.content__text {
+
+        @include adapt-value('margin-bottom', 57.0, 15, 0);
+        color: white;
+        @include adapt-value('font-size', 29.17, 14, 0);
+        line-height: 1.2;
+        font-family: "Myriad_Pro";
+
+        &>p {
+            @include adapt-value('padding-right', 20, 15, 0);
+        }
+
+
+    }
+
+    &>.content__button {
+
+
+        & button {
+
+
+            padding-left : clamp(20px, 4.9vw, 55px);
+            padding-right: clamp(20px, 4.9vw, 55px);
+
+            border          : 3px solid transparent;
+            background-color: $orange;
+        }
+
+
+
+        & button>span {
+            ///334
+
+            @include adapt-value('font-size', 29.17, 14, 0);
+
+        }
+
+        @media (max-width:768px) {
+            & {
+                display        : flex;
+                justify-content: center;
+            }
+        }
+
+    }
+
+}
+
+.two_art_blocks__container {
+    /* flex-basis: 50%; */
+    max-width: 1182px;
+
+
+    padding: 0 20px;
+
+    margin : 0 auto;
+    display: flex;
+
+    @media (max-width:767px) {
+
+        padding: 0 15px;
+
+
+    }
+}
+
+.two_art_blocks__image {
+    ////////////////
+
+    overflow: hidden;
+
+
+
+    @media (min-width:768px) {
+        flex          : 0 0 50%;
+        padding-bottom: 50%;
+        position      : relative;
+
+
+
+        transform: translate(-100%, 0%);
+    }
+
+    &>.image__body {
+
+
+
+        &>img {
+            max-width: 100%;
+
+            @media (min-width:768px) {
+                position  : absolute;
+                top       : 0;
+                left      : 0;
+                height    : 100%;
+                width     : 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+@media (min-width:768px) {
+
+
+    .content_block:nth-child(2n)>.content>.two_art_blocks__container>.content__body>.content__button button>span {
+        @include adapt-value('font-size', 23.15, 14, 0);
+    }
+
+
+    .content_block:nth-child(2n-1)>.content>.two_art_blocks__container {
+        padding-left: 58px;
+        @include adapt-value('padding-left', 58, 20, 0);
+    }
+
+    .content__body {
+        flex: 0 0 50%;
+
+    }
+}

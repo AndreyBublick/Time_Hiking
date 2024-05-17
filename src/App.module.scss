@@ -1,5 +1,14 @@
+
+
+@import './mixins';
+
+@import './general-parametrs';
+
+
 .App {
   text-align: center;
+ 
+
 }
 
 .App-logo {
@@ -36,3 +45,10 @@
     transform: rotate(360deg);
   }
 }
+.root{
+  overflow-x: hidden;
+}
+
+
+
+

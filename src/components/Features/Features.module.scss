@@ -1,0 +1,248 @@
+@import '../../mixins';
+@import '../../general-parametrs';
+
+
+
+.features {
+    background: url('../../content/images/Features/Shadow.png') 0 100%/100% no-repeat fixed;
+    @media (min-width:1200px) {
+        background: url('../../content/images/Features/Shadow.png') 0 100%/40% no-repeat fixed;
+
+    }
+    
+    
+    @include adapt-value('padding-bottom',183,20,1);
+
+}
+
+.container {
+
+    @include calc-container(121);
+}
+
+.body {}
+
+.items {
+
+    @include adapt-value('padding-bottom', 40, 20, 0);
+
+    @media (min-width:568px) {
+        display  : flex;
+        flex-wrap: wrap;
+        /* margin: 0 -43.5px 0; */
+
+        @include adapt-value('margin-left', -43.5, 0, 1);
+        @include adapt-value('margin-right', -43.5, 0, 1);
+
+    }
+
+    @media (min-width:1201px) {
+
+        @include adapt-value('padding-bottom', 0, 0, 0);
+        @include adapt-value('padding-left', -30, -40, 2);
+        @include adapt-value('padding-right', -30, -40, 2);
+
+    }
+
+    &::before {
+        content: '';
+    }
+
+    @media (min-width:568px) and (max-width:1200px) {
+
+        position: relative;
+
+        &::before {
+            content : '';
+            position: absolute;
+            top     : 0;
+            left    : 50%;
+            height  : 100%;
+
+            @include adapt-value('width', 2, 1, 0);
+            background-color: $gray;
+            transform       : translate(-50%, 0);
+        }
+    }
+
+
+
+}
+
+
+.item {
+
+
+
+    @include adapt-value('margin-bottom', 87, 0, 0);
+
+    @media (max-width:567px) {
+        @include adapt-value('margin-bottom', 87, 20, 0);
+
+        &:last-child {
+            margin-bottom   : 0px;
+            background-color: black;
+        }
+    }
+
+    @media (min-width:568px) {
+        flex       : 0 0 50%;
+        /*  padding: 0 43.5px 0; */
+        @include adapt-value('padding-left', 43.5, 0, 1);
+        @include adapt-value('padding-right', 43.5, 0, 1);
+
+
+    }
+
+    @media (min-width:1201px) {
+        flex: 0 0 33.333%;
+        @include adapt-value('margin-bottom', 60, 80, 1);
+        @include adapt-value('padding-left', 30, 40, 2);
+        @include adapt-value('padding-right', 30, 40, 2);
+    }
+
+
+    @media (min-width:568px) and (max-width:1200px) {
+        & {
+            position: relative;
+        }
+
+        &::before {
+            content  : '';
+            position : absolute;
+            top      : 50%;
+            transform: translate(0, -50%);
+
+            width  : 0px;
+            height : 0px;
+            z-index: 1;
+
+            @include adapt-value('border-bottom-width', 25, 10, 0);
+            border-bottom-style: solid;
+            border-bottom-color: transparent;
+
+            @include adapt-value('border-top-width', 25, 10, 0);
+            border-top-style: solid;
+            border-top-color: transparent;
+
+
+        }
+
+        &:nth-child(even)::before {
+
+
+
+            left: 0%;
+
+
+
+
+
+            @include adapt-value('border-left-width', 25, 10, 0);
+            border-left-style: solid;
+            border-left-color: $gray;
+
+
+        }
+
+        &:nth-child(odd)::before {
+
+            right: 0%;
+
+
+            @include adapt-value('border-right-width', 25, 10, 0);
+            border-right-style: solid;
+            border-right-color: $gray;
+
+
+
+
+
+
+        }
+    }
+
+
+}
+
+
+
+.item__body {
+    background-color: hsla(28, 6%, 47%, 0.8);
+}
+
+.item__picture {
+
+    @media (max-width:567px) {
+        text-align: center;
+
+    }
+
+    @include adapt-value('margin-bottom', 60, 10, 0);
+    @include adapt-value('margin-bottom', 40, 30, 1);
+
+}
+
+
+.item__image {
+    position      : relative;
+    padding-bottom: 100%;
+
+    /* 87 */
+    @media (min-width:768px) {}
+}
+
+.item__image>img {
+    /* max-width: 100%; */
+    position  : absolute;
+    top       : 0;
+    left      : 0;
+    width     : 100%;
+    height    : 100%;
+    object-fit: cover;
+
+    @media (min-width:768px) {}
+
+}
+
+
+//////////////
+.item__content {
+    @include adapt-value('padding-left', 16, 10, 0);
+    @include adapt-value('padding-right', 16, 10, 0);
+    @include adapt-value('padding-bottom', 72, 20, 0);
+    @include adapt-value('padding-bottom', 50, 30, 1);
+
+
+
+}
+
+.item__title {
+    color      : white;
+    font-weight: 700;
+    font-family: 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
+    @include adapt-value('margin-bottom', 30, 13, 0);
+    @include adapt-value('font-size', 29, 18, 0);
+    line-height: 1.2;
+
+
+}
+
+
+.item__text {
+    font-weight: 400;
+    font-family: 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color      : white;
+    line-height: 1.2;
+    @include adapt-value('font-size', 23, 13, 0);
+
+}
+
+
+.Body_Text {}
+
+.show_more_button {
+    display        : flex;
+    justify-content: center;
+}
+

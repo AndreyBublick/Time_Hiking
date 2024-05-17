@@ -1,0 +1,39 @@
+@import '../../mixins.scss';
+@import '../../fonts/fonts.scss';
+
+.titleBlock {}
+
+.titleBlock {
+    @include adapt-value('padding-top', 47, 20, 0);
+    @include adapt-value('padding-bottom', 82, 20, 0);
+
+}
+
+.titleBlock__container {}
+
+.titleBlock__body {
+    margin    : 0 auto;
+    text-align: center;
+
+    @media (min-width:768px) {
+        max-width: 60%;
+
+    }
+}
+
+.title {
+    color: #e2a355;
+    @include adapt-value('font-size', 90, 50, 0);
+    font-family: 'Open Sans', "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 800;
+    @include adapt-value('margin-bottom', 55, 20, 0);
+    text-transform: uppercase;
+}
+
+.subTitle {
+    line-height: 130%;
+    @include adapt-value('font-size', 30, 20, 0);
+    font-family: 'Open Sans', "Helvetica Neue", Helvetica, sans-serif;
+
+    color: #7f7770;
+}

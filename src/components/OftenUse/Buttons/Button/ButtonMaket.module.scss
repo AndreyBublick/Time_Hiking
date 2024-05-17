@@ -1,0 +1,42 @@
+@import '../../../../mixins';
+
+@import '../../../../general-parametrs';
+
+
+.button{
+  
+}
+
+
+.button>button {
+    display: flex;
+    align-items: center;
+  border: 3px solid gray;
+  padding-top     : 0;
+  padding-bottom  : 0;
+  min-height      : 1px;
+  height          : auto;
+ 
+  padding-left    : clamp(20px,4.9vw,67px);
+  padding-right   : clamp(20px,4.9vw,67px);
+
+  /* padding: clamp(10px,5vw,50px) clamp(10px,5vw,50px) clamp(10px,5vw,50px) 0; */
+
+  line-height     : clamp(320%,4.9vw,500%);
+ 
+  background-color: $gray;
+  border-radius   : 10vw;
+}
+
+
+.button>button>span {
+  display: flex;
+  font-family   : 'Open Sans', "Helvetica Neue", Helvetica, sans-serif;
+  font-weight   : 800;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  
+
+  @include adapt-value('font-size',23.15,14,0);
+  
+}
