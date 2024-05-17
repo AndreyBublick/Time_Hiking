@@ -2,14 +2,15 @@ import { useSelector } from 'react-redux';
 import styleFeatures from './Features.module.scss';
 import { getFeaturesCardsSelector } from '../../redux/features-selectors.ts';
 import { Button, ConfigProvider } from 'antd';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 
 import { ButtonMaket } from '../OftenUse/Buttons/Button/ButtonMaket.jsx';
+import { v4 as uuidv4 } from 'uuid';
 
 
-const Features = (props) => {
-
+const Features = memo( (props) => {
+    
     ////прокидывает state из контекста
     const cardsData = useSelector(getFeaturesCardsSelector);
 
@@ -17,7 +18,7 @@ const Features = (props) => {
     const [isLoadButton, setIsLoadButton] = useState(false);
     const [isDisabledButton, setIsDisabledButton] = useState(false);
     const [newCardsData, setNewCardsData] = useState([]);
-    const [eventList, setEventList] = useState([]);
+ 
     /*     const [pointsEvent, setPointsEvent] = useState([]); */
 
 
@@ -46,7 +47,7 @@ const Features = (props) => {
         else {
             setHowManyCardsShow(3);
         }
-        setIsLoadButton((prev) => !prev);
+        setIsLoadButton(false);
 
 
 
@@ -56,7 +57,7 @@ const Features = (props) => {
                     setIsActiveButton((prev) => !prev);
                 
                 } */
-        setIsLoadButton((prev) => !prev);
+        setIsLoadButton(true);
 
 
         setTimeout(() => {
@@ -69,27 +70,17 @@ const Features = (props) => {
     
 
     useEffect(() => {
-
+        
         addCards();
 
 
-        /* setEventList(eventsListDOM); */
+        
 
     }, [count]);
 
 
 
-    useEffect(() => {
-
-
-        const eventsListDOM = document.querySelectorAll('.features__event_block .event');
-        setEventList(eventsListDOM);
-
-
-
-
-
-    }, [newCardsData]);
+   
 
     
    
@@ -107,7 +98,7 @@ const Features = (props) => {
         if (window.innerWidth < 1200) { /* первый параметр точка самой карточки 2.Параметр часть viewport */
             if (index % 2 === 0) {
 
-                return <div data-aos-anchor-placement='top-bottom' data-aos="fade-left" data-aos-delay="350" key={item.id} className={[styleFeatures.item, 'event'].join(' ')}>
+                return <div key={uuidv4()} data-aos-anchor-placement='top-bottom' data-aos="fade-left" data-aos-delay="350" className={[styleFeatures.item, 'event'].join(' ')}>
                     <div className={styleFeatures.item__body}>
 
                         <div className={styleFeatures.item__picture}>
@@ -166,7 +157,7 @@ const Features = (props) => {
                 </div>;
             }
         }
-        return <div data-aos-anchor-placement='top-bottom' data-aos="fade" data-aos-delay="150" key={item.id} className={[styleFeatures.item, 'event'].join(' ')}>
+        return <div key={uuidv4()} data-aos-anchor-placement='top-bottom' data-aos="fade" data-aos-delay="150" className={[styleFeatures.item, 'event'].join(' ')}>
             <div className={styleFeatures.item__body}>
 
                 <div className={styleFeatures.item__picture}>
@@ -205,84 +196,7 @@ const Features = (props) => {
             <div className={styleFeatures.body}>
                 <div className={[styleFeatures.items, 'features__event_block'].join(' ')}>
                     {cards}
-                    {/* <div className={styleFeatures.item}>
-                        <div className={styleFeatures.item__body}>
-
-                            <div className={styleFeatures.item__picture}>
-                                <div className={styleFeatures.item__image}>
-                                    <img src={imager} alt={'#'} />
-
-                                </div>
-
-                            </div>
-
-                            <div className={styleFeatures.item__content}>
-                            <div className={styleFeatures.item__title}>
-                                Lorem, ipsum.
-
-                            </div>
-                            <div className={styleFeatures.item__text}>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-
-                            </div>
-
-                            </div>
-
-                            
-                        </div>
-                    </div>
-                    <div className={styleFeatures.item}>
-                        <div className={styleFeatures.item__body}>
-
-                            <div className={styleFeatures.item__picture}>
-                                <div className={styleFeatures.item__image}>
-                                    <img src={imager} alt={'#'} />
-
-                                </div>
-
-                            </div>
-
-                            <div className={styleFeatures.item__content}>
-                            <div className={styleFeatures.item__title}>
-                                Lorem, ipsum.
-
-                            </div>
-                            <div className={styleFeatures.item__text}>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-
-                            </div>
-
-                            </div>
-
-                            
-                        </div>
-                    </div>
-                    <div className={styleFeatures.item}>
-                        <div className={styleFeatures.item__body}>
-
-                            <div className={styleFeatures.item__picture}>
-                                <div className={styleFeatures.item__image}>
-                                    <img src={imager} alt={'#'} />
-
-                                </div>
-
-                            </div>
-
-                            <div className={styleFeatures.item__content}>
-                            <div className={styleFeatures.item__title}>
-                                Lorem, ipsum.
-
-                            </div>
-                            <div className={styleFeatures.item__text}>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-
-                            </div>
-
-                            </div>
-
-                            
-                        </div>
-                    </div> */}
+                    
 
                 </div>
                 {!isDisabledButton && <div className={[styleFeatures.show_more_button, 'button'].join(' ')}>
@@ -310,7 +224,7 @@ const Features = (props) => {
                         }}
                     >
 
-                        <ButtonMaket textButton={'Show more'} loading={isLoadButton} disabled={isDisabledButton} onClick={setCountPlus}>Show more</ButtonMaket>
+                        <ButtonMaket textButton={'Show more'} loading={isLoadButton} disabled={isDisabledButton} onClick={setCountPlus}></ButtonMaket>
                         {/* <Button textButton={'Show more'} loading={isLoadButton} disabled={isDisabledButton} onClick={setCountPlus}>Show more</Button> */}
                     </ConfigProvider>
 
@@ -320,6 +234,6 @@ const Features = (props) => {
         </div>
     </div>
 
-}
+});
 
 export default Features;
