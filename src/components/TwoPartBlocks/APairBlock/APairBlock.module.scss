@@ -26,11 +26,16 @@
 /// 
 /// 
 .content_block {
-    background-color: $orangeLight;
+    
 
     display: flex;
 
-
+    @media (min-width:768px) {
+        
+            
+            background-color: $orangeLight;
+            
+    }
 
 
     &:nth-child(2n-1)>.content>.two_art_blocks__container {
@@ -40,10 +45,13 @@
         font-size: 50px;
     }
 
-    &:nth-child(2n-1) {
-        background-color: $gray;
-
+    @media (min-width:768px) {
+        &:nth-child(2n-1) {
+            background-color: $gray;
+    
+        }    
     }
+    
 
     &:nth-child(2n-1)>.content>.two_art_blocks__container>.content__body {}
 
@@ -80,6 +88,15 @@
     }
 
     overflow: hidden;
+
+    @media (max-width:767px) {
+        
+            
+        background-color: $gray;
+        
+}
+
+
 }
 
 .content__body {

@@ -18,6 +18,7 @@ const Features = memo( (props) => {
     const [isLoadButton, setIsLoadButton] = useState(false);
     const [isDisabledButton, setIsDisabledButton] = useState(false);
     const [newCardsData, setNewCardsData] = useState([]);
+    const [сards, setCards] = useState([]);
  
     /*     const [pointsEvent, setPointsEvent] = useState([]); */
 
@@ -98,7 +99,7 @@ const Features = memo( (props) => {
         if (window.innerWidth < 1200) { /* первый параметр точка самой карточки 2.Параметр часть viewport */
             if (index % 2 === 0) {
 
-                return <div key={uuidv4()} data-aos-anchor-placement='top-bottom' data-aos="fade-left" data-aos-delay="350" className={[styleFeatures.item, 'event'].join(' ')}>
+                return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-left" data-aos-delay="350" className={[styleFeatures.item, 'event'].join(' ')}>
                     <div className={styleFeatures.item__body}>
 
                         <div className={styleFeatures.item__picture}>
@@ -157,7 +158,7 @@ const Features = memo( (props) => {
                 </div>;
             }
         }
-        return <div key={uuidv4()} data-aos-anchor-placement='top-bottom' data-aos="fade" data-aos-delay="150" className={[styleFeatures.item, 'event'].join(' ')}>
+        return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade" data-aos-delay="150" className={[styleFeatures.item, 'event'].join(' ')}>
             <div className={styleFeatures.item__body}>
 
                 <div className={styleFeatures.item__picture}>
