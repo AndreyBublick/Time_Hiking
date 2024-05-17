@@ -4,7 +4,7 @@
 
 
 .features {
-    background: url('../../content/images/Features/Shadow.png') 50% 0%/100% 100% no-repeat fixed;
+    background: url('../../content/images/Features/Shadow.png') 50% 50%/100% 50% no-repeat fixed;
     @media (min-width:1200px) {
         background: url('../../content/images/Features/Shadow.png') 0 100%/40% no-repeat fixed;
 
@@ -168,6 +168,7 @@ overflow-x: hidden;
 
 
 .item__body {
+    opacity: 1;//////////
     background-color: hsla(28, 6%, 47%, 0.8);
 }
 
