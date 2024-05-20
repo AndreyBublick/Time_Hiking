@@ -8,6 +8,8 @@ import { TitleBlock } from './components/TitleBlock/TitleBlock.tsx';
 import { TwoPartBlocks } from './components/TwoPartBlocks/TwoPartBlocks.jsx';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { TitleMountains } from './components/TitleMountains/TitleMountains.jsx';
+import { Explore } from './components/Explore/Explore.jsx';
 const App = () => {
 
   useEffect(() => {
@@ -27,6 +29,8 @@ const App = () => {
       <TitleBlock   />
       <Features />
       <TwoPartBlocks />
+      <TitleMountains />
+      
      
     </div>
   );
