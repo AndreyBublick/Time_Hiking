@@ -10,7 +10,7 @@ import { Links } from './Links/Links.jsx';
 
 
 export const Footer = memo((props) => {
-    return <footer className={style.footer}>
+    return <footer data-aos="zoom-in" data-aos-delay="600"  className={style.footer}>
         <div className={[style.footer__container, 'container'].join(' ')}>
 
             <div className={[style.footer__body,].join(' ')}>
