@@ -5,15 +5,17 @@
 
 
 .features {
+    transition: 0.5s all;
     background: url('../../content/images/Elements/Shadow.png') 50% 50%/100% 50% no-repeat fixed;
+
     @media (min-width:1200px) {
         background: url('../../content/images/Elements/Shadow.png') 0 100%/40% no-repeat fixed;
 
     }
-    
-    
-    @include adapt-value('padding-bottom',183,20,1);
-overflow-x: hidden;
+
+
+    @include adapt-value('padding-bottom', 183, 20, 1);
+    overflow-x: hidden;
 }
 
 .container {
@@ -30,7 +32,7 @@ overflow-x: hidden;
     @media (min-width:568px) {
         display  : flex;
         flex-wrap: wrap;
-    
+
         /* margin: 0 -43.5px 0; */
 
         @include adapt-value('margin-left', -43.5, 0, 1);
@@ -170,7 +172,7 @@ overflow-x: hidden;
 
 
 .item__body {
-    opacity: 1;//////////
+    opacity         : 1; //////////
     background-color: hsla(28, 6%, 47%, 0.8);
 }
 
@@ -248,4 +250,3 @@ overflow-x: hidden;
     display        : flex;
     justify-content: center;
 }
-

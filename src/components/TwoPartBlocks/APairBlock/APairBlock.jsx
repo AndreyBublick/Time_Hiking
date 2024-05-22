@@ -10,7 +10,7 @@ export const APairBlock = (props) => {
         <div  className={style.content}>
             <div className={style.two_art_blocks__container}>
 
-                <div data-aos-anchor-placement='top-bottom' data-aos-offset={350} data-aos="zoom-in-up" className={style.content__body}>
+                <div data-aos-anchor-placement='top-bottom' data-aos-offset={'200'} data-aos="zoom-in-up" className={style.content__body}>
                     <div className={style.content__title}>
                         <p>
                             {props.textTitle}
@@ -61,7 +61,7 @@ export const APairBlock = (props) => {
         </div>
         <div  className={[style.two_art_blocks__image, style.image].join(' ')}>
             <div  className={style.image__body}>
-                <img data-aos-anchor-placement='top-bottom' data-aos-offset={600} data-aos="zoom-out" src={props.image} alt="picture" />
+                <img data-aos-anchor-placement='top-bottom' data-aos-offset={'300'} data-aos="zoom-out" src={props.image} alt="picture" />
             </div>
         </div>
 
