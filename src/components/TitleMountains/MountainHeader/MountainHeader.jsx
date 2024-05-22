@@ -23,7 +23,7 @@ export const MountainHeader = ({Child,...props}) => {
                                     Ut enim ad minim veniam quis  
                                     </p>
                             </div>
-                            {Child && <Child  />}
+                            {Child && <Child placeHolder={'Your Email'} />}
                         </div>
                     </div>
 
