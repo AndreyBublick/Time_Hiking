@@ -5,7 +5,7 @@ import { Button, ConfigProvider } from 'antd';
 import { memo, useEffect, useState } from 'react';
 
 
-import { ButtonMaket } from '../OftenUse/Buttons/Button/ButtonMaket.jsx';
+import { ButtonMaket } from '../OftenUse/Buttons/Button//ButtonMaket.jsx';
 import { v4 as uuidv4 } from 'uuid';
 
 

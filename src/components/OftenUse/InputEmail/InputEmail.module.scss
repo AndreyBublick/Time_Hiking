@@ -1,0 +1,92 @@
+@import '../../../mixins';
+
+@import '../../../general-parametrs';
+@import '../../../fonts/fonts';
+
+.InputEmail {
+
+  margin: 0 auto;
+
+  &__body {
+    font-family: 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+    /* align-items: center; */
+
+    &>div:first-child {
+      position: relative;
+
+
+      input {
+        width : 100%;
+        /* height: 63px;
+ */
+        @include adapt-value('font-size', 25, 20, 0);
+
+
+
+        @include adapt-value('padding-bottom', 20, 9, 0);
+        @include adapt-value('padding-top', 20, 9, 0);
+        @include adapt-value('padding-left', 30, 20, 0);
+        @include adapt-value('padding-right', 210, 120, 0);
+
+
+
+        border-radius: 250px;
+      }
+    }
+
+  }
+
+  &__item {
+
+
+
+    &>div {}
+
+
+
+    /* & button {
+
+      height        : 100%;
+      @include adapt-value('font-size', 25, 20, 0);
+      
+      font-family   : "OpenSans";
+      color         : rgb(255, 255, 255);
+      font-weight   : bold;
+      text-transform: uppercase;
+
+
+
+
+
+
+    } */
+  }
+
+  &__button {
+    position: absolute;
+    top     : 0;
+    right   : 0%;
+
+
+    height: 100%;
+
+    &>div {
+      height: 100%;
+    }
+
+    & button {
+
+      height     : 100%;
+      color      : white;
+      line-height: normal;
+      @include adapt-value(padding-left, 33, 20, 0);
+      @include adapt-value(padding-right, 33, 20, 0);
+      background-color: #54524f;
+      & span{
+        letter-spacing  : -1px;
+
+      }
+    }
+  }
+}

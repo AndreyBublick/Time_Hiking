@@ -1,0 +1,25 @@
+@import '../../mixins';
+@import '../../general-parametrs';
+@import '../../fonts/fonts';
+
+
+.TitleHere {
+    
+    &__body {
+        
+        &>div>div {
+            overflow: hidden;    
+            background-color: $orangeLight;
+
+             &::after {
+                height    : 110%;
+            } 
+            &>div{
+                &::before{
+                    display: none;
+                }
+            }
+        }
+
+    }
+} 

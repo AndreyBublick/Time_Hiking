@@ -9,29 +9,36 @@ import { TwoPartBlocks } from './components/TwoPartBlocks/TwoPartBlocks.jsx';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { TitleMountains } from './components/TitleMountains/TitleMountains.jsx';
-import { Explore } from './components/Explore/Explore.jsx';
+import { BrieflyAboutTheMainThing } from './components/BrieflyAboutTheMainThing/BrieflyAboutTheMainThing.jsx';
+import TitleHere from './components/TitleHere/TitleHere.jsx';
+import { Footer } from './components/Footer/Footer.jsx';
+import './fonts/fontello/css/fontello.css';
+
 const App = () => {
 
   useEffect(() => {
     AOS.init({
-        once: true,
-        /*  disable: "phone", */
-        duration: 700,
-        easing: "ease-out-cubic",
+      once: true,
+      /*  disable: "phone", */
+      duration: 700,
+      easing: "ease-out-cubic",
     });
-}, []);
+  }, []);
 
 
   return (
     <div className="App">
       <HeaderContainer />
       <ITSTimeForHiking />
-      <TitleBlock   />
+      <TitleBlock />
       <Features />
       <TwoPartBlocks />
       <TitleMountains />
-      
-     
+      <BrieflyAboutTheMainThing />
+      <TitleHere />
+      <Footer />
+
+
     </div>
   );
 }

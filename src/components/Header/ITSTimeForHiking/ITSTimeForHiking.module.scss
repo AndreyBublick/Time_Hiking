@@ -29,13 +29,14 @@
 .ITSTimeForHiking__content {
     /* padding-top: 300px; */
     @include adapt-value('padding-top', 300, 260, 0);
+    @include adapt-value('padding-bottom', 100, 50, 0);
 
     max-width: 100%; ///49% 
 }
 /* @media (max-height:667px) {} */
 
 
-@media (max-height:720px) {
+@media (max-height:750px) {
     .ITSTimeForHiking__content {
         @include adapt-value('padding-top', 250, 150, 0);
         @include adapt-value('padding-bottom', 130, 120, 0);

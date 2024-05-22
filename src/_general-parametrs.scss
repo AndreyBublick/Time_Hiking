@@ -3,4 +3,38 @@
 $gray:#7f7770;
 $orangeLight:#deb37e;
 $orange:#e2a355;
-$orangeLight:#deb37e;
+$textGray:#3f3f3f;
+
+
+@keyframes wave {
+
+    0%,100%{
+
+        background-position: 0% 0%;
+    }
+    50%{
+        background-position: 100% 0%;
+
+    }
+}
+@keyframes wave2 {
+    0%,100%{
+
+        background-position: 0% 100%;
+    }
+    50%{
+        background-position: 100% 100%;
+
+    }  
+}
+@keyframes increase {
+
+    0%,100%{
+
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+
+    }
+}

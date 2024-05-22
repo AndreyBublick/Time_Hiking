@@ -1,0 +1,98 @@
+@import '../../../mixins';
+@import '../../../general-parametrs';
+@import '../../../fonts/fonts';
+
+
+
+
+.links {
+
+    &__body {}
+
+    &__items {
+        display: flex;
+        margin : 0 -6px;
+        @media (max-width:767px) {
+            justify-content: center;
+        }
+    }
+
+    &__item {
+        padding        : 0 6px;
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+
+        a {
+            cursor       : pointer;
+            transition   : 0.3s all;
+            color        : $gray;
+            line-height  : 1.4;
+            border-radius: 50%;
+
+            @include adapt-value(font-size, 30, 25, 0);
+            background-color: white;
+        }
+
+
+
+
+    }
+}
+
+
+.whatsapp {
+
+    @media (hover:hover) {
+        &:hover {
+            color: #25D366;
+        }
+    }
+    @media (hover:none) {
+        &:active {
+            color: #25D366;
+        }
+    }
+
+}
+
+.twitter {
+    @media (hover:hover) {
+        &:hover {
+            color: #00acee;
+        }
+    }
+    @media (hover:none) {
+        &:active {
+            color: #00acee;
+        }
+    }
+}
+
+.facebook {
+    @media (hover:hover) {
+        &:hover {
+            color: #3b5998;
+        }
+    }
+    @media (hover:none) {
+        &:active {
+            color: #3b5998;
+        }
+    }
+}
+
+.instagram {
+    @media (hover:hover) {
+        &:hover {
+            color     : white;
+            background: linear-gradient(45deg, #f58529, #feda77, #dd2a7b, #8134af, #515bd4);
+        }
+    }
+    @media (hover:none) {
+        &:active {
+            color: white;
+            background: linear-gradient(45deg, #f58529, #feda77, #dd2a7b, #8134af, #515bd4);
+        }
+    }
+}

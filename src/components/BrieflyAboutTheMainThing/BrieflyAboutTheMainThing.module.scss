@@ -1,0 +1,109 @@
+@import '../../mixins.scss';
+@import '../../fonts/fonts';
+@import '../../general-parametrs';
+
+
+
+.BrieflyAboutTheMainThing {
+    min-height: 785px;
+position: relative;
+
+    user-select: none;
+    @include adapt-value('padding-top', 73, 25, 0);
+    @include adapt-value('padding-bottom', 105, 25, 0);
+
+    &::before{
+        
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../../content/images/BrieflyAboutTheMainThing/Shadow.png') 100% 100%/150px no-repeat;
+
+        @media (min-width:567px) {
+        background: url('../../content/images/BrieflyAboutTheMainThing/Shadow.png') 100% 100%/45% no-repeat;
+        
+    }
+    }
+
+
+    &__container {
+        max-width: 1130px;
+    }
+
+    &____body {}
+
+    &__content {}
+
+    &__cards {
+        @include adapt-value('margin-bottom', 128, 5, 0);
+    }
+}
+
+
+.content {
+    color      : $textGray;
+    font-family: 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+    &__body {
+        display       : flex;
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    &__symbol {
+
+        &>div {
+            position: relative;
+            @include adapt-value('font-size', 100, 65, 0);
+
+            font-weight: bold;
+            color      : transparent;
+
+            &::before {
+                content : '“';
+                position: absolute;
+                top     : 75%;
+                left    : 50%;
+
+                font-size  : inherit;
+                color      : $textGray;
+                font-weight: inherit;
+                transform: translate(-50%,-50%)
+
+            }
+        }
+
+
+        @include adapt-value('margin-bottom', 50, 15, 0);
+
+
+
+    }
+
+    &__text {
+        line-height: 1.4;
+
+        @include adapt-value(font-size, 25, 16, 0);
+        font-weight: 600;
+
+        @include adapt-value('margin-bottom', 62, 15, 0);
+        @media (min-width:568px) {
+            padding: 0 25px;
+        }
+    }
+
+    &__PS {
+
+        @include adapt-value('font-size', 21, 20, 0);
+        font-weight: bold;
+        line-height: 1.6;
+
+
+    }
+
+}
