@@ -2,13 +2,17 @@ import { Button } from "antd";
 
 import style from './ButtonMaket.module.scss';
 import { memo } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 
-export const ButtonMaket = memo(({ textButton, ...props }) => {
+
+
+///HandleSubmit
+export const ButtonMaket = memo(({ isDisabled,onClickFC,textButton,loading,type, ...props }) => {
 
     return <div className={style.button}>
 
-        <Button key={10000} {...props} ><span>{textButton}</span></Button>
+        <Button loading={loading} htmlType={type} disabled={isDisabled} onClick={onClickFC} key={uuidv4()} {...props}  ><span>{textButton}</span></Button>
     </div>
 });
 

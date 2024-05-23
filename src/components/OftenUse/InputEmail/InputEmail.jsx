@@ -1,17 +1,77 @@
 
 
 import style from './InputEmail.module.scss';
-import { memo } from "react";
+import { memo, useRef, useState } from "react";
 import { ButtonMaket } from "../Buttons/Button/ButtonMaket.jsx";
 import { ConfigProvider } from 'antd';
+import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 
-export const InputEmail = memo(({placeHolder,...props}) => {
 
-    return <div className={style.InputEmail}>
+
+
+export const InputEmail = memo(({ placeHolder, ...props }) => {
+    const recaptcha = useRef();
+    const [valueEmail, setValueEmail] = useState('');
+    const [isLoad, setIsLoad] = useState(false);
+    const [isGoSend, setIsGoSend] = useState(true);
+
+    const recaptchaRef = useRef();
+    const handleReset = () => {
+        setIsGoSend(true);
+        recaptchaRef.current.reset();
+      };
+
+
+
+    const changeInputEmailValue = (e) => {
+
+        setValueEmail(e.target.value);
+
+    };
+
+    const sendValueInputEmail = (e) => {
+        
+
+        if(!(valueEmail==='')&&!(valueEmail.startsWith(' '))){
+            setIsLoad(true);
+
+            e.preventDefault();    //This is important, i'm not sure why, but the email won't send without it
+    
+            emailjs.sendForm('service_ddi3iyn', 'template_vjw3z28', e.target, 'JATD2Y0X_IKx-MWjM')
+                .then((result) => {
+                    setValueEmail('');
+                    setIsLoad(false);
+                    setIsGoSend(true);
+                    handleReset();
+                    /* window.location.reload() */   //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
+                }, (error) => {
+                    console.log(error.text);
+                });
+    
+        }
+        else{
+            e.preventDefault(); 
+        }
+       
+
+
+    };
+
+    const prepareForSend = () => {
+        setIsGoSend((prev)=> !prev);
+    };
+
+
+    ///82238
+    return <form className="contact-form" onSubmit={sendValueInputEmail}> <div className={style.InputEmail}>
         <div className={style.InputEmail__body}>
             <div className={style.InputEmail__item}>
-                <input placeholder={placeHolder} type="Email" />
+
+                <input disabled={isLoad} name='to_email' placeholder={placeHolder} onChange={changeInputEmailValue} value={valueEmail} type="Email" />
+
+
                 <div className={style.InputEmail__button}>
 
 
@@ -19,7 +79,7 @@ export const InputEmail = memo(({placeHolder,...props}) => {
                         theme={{
                             token: {
                                 colorBgContainerDisabled: '#fff',
-                                colorTextDisabled: '#fff',
+                                colorTextDisabled: 'rgb(217, 217, 217)',
                                 colorText: '#fff',
 
 
@@ -33,8 +93,8 @@ export const InputEmail = memo(({placeHolder,...props}) => {
 
                                     defaultHoverColor: '#fff',
 
-                                    defaultActiveBg:'transparent',
-                                     defaultActiveBorderColor:'#7f7770',
+                                    defaultActiveBg: 'transparent',
+                                    defaultActiveBorderColor: '#7f7770',
                                     defaultActiveColor: '#7f7770',
 
                                 },
@@ -42,13 +102,19 @@ export const InputEmail = memo(({placeHolder,...props}) => {
                         }}
                     >
 
-                        <ButtonMaket textButton={'subscribe'} />
+                        <ButtonMaket loading={isLoad} isDisabled={isGoSend} textButton={'subscribe'} type={'submit'} />
                     </ConfigProvider>
                 </div>
+
             </div>
-           
+            <div className={style.InputEmail__recap}>
+                <ReCAPTCHA ref={recaptchaRef} onChange={prepareForSend} sitekey={'6LchUuYpAAAAAOnaNq_E5ARp1raV9pTS41Iq0_ng'} />
+
+            </div>
         </div>
 
     </div>
+
+    </form>
 });
 

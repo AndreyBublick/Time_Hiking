@@ -8,6 +8,8 @@
   margin: 0 auto;
 
   &__body {
+   
+    
     font-family: 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
 
     /* align-items: center; */
@@ -38,8 +40,8 @@
   }
 
   &__item {
-
-
+    
+position: relative;
 
     &>div {}
 
@@ -89,4 +91,27 @@
       }
     }
   }
+  &__recap{
+  margin-top: 15px;
+  }
+  
+   @media (max-width:320px) {
+    &__recap{
+      
+      &>div{
+      
+        width: 250px; 
+        /* */  
+        
+      }
+    &>div>div{
+      width: 250px; 
+    }
+    &>div>div>div{
+      transform-origin:0;
+      transform: scale(0.82238); 
+    }
+  } 
+   }
+    
 }
