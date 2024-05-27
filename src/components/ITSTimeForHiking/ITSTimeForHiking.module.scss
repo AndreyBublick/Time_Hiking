@@ -1,5 +1,7 @@
-@import '../../../mixins.scss';
-@import '../../../fonts/fonts.scss';
+@import '../../mixins.scss';
+@import '../../fonts/fonts.scss';
+@import '../../general-parametrs.scss';
+
 
 
 .ITSTimeForHiking {
@@ -9,6 +11,26 @@
     overflow      : hidden;
     min-height    : 100dvh;
     /* @include adapt-value ('margin-top',-70,0,0);  */
+
+    &::before{
+       
+       
+       @media (min-width:1200px) {
+        top: 5%; 
+       }
+        @extend %runLine_top;
+
+            
+    }
+    &::after{
+       
+        
+        @extend %runLine_bottom;
+
+            background-image: url('../../content/images/animation/Shape-1.png'); 
+    }
+
+
 
 }
 
@@ -33,6 +55,7 @@
 
     max-width: 100%; ///49% 
 }
+
 /* @media (max-height:667px) {} */
 
 
@@ -88,12 +111,12 @@
 
 
 .ITSTimeForHiking__title {
-    font-weight   : 800;
+    font-weight: 800;
 
     /* font-size  : 90px; */
     text-transform: uppercase;
     color         : #deb37e;
-    font-family   : 'Open Sans',Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family   : 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
     line-height   : 120%;
     @include adapt-value('font-size', 80, 40, 0);
 
@@ -102,11 +125,12 @@
 
     }
 }
+
 @media (max-width:650px) {
     .ITSTimeForHiking__title {
         text-align: center;
         @include adapt-value('margin-bottom', 20, 20, 0);
-    } 
+    }
 }
 
 @media (max-height:500px) {
@@ -124,16 +148,18 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight   : 700;
-    font-family   : 'Open Sans',Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family   : 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
     @include adapt-value('margin-bottom', 65, 50, 0);
 
 }
+
 @media (max-width:650px) {
     .ITSTimeForHiking__sub_title {
         text-align: center;
-        
-    } 
+
+    }
 }
+
 @media (max-height:500px) {
     .ITSTimeForHiking__sub_title {
         @include adapt-value('margin-bottom', 25, 15, 0);
@@ -149,24 +175,25 @@
     background-color: white;
     text-transform  : uppercase;
 
-    color      : #776c64;
+    color: #776c64;
     @include adapt-value('padding-left', 35, 30, 0);
     @include adapt-value('padding-right', 35, 30, 0);
     font-size  : 25px;
     font-weight: 800;
     line-height: 190%;
-    font-family: 'Open Sans',Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
     @include adapt-value('margin-bottom', 30, 20, 0);
     transition: all 0.3s;
 }
+
 @media (max-width:650px) {
     .ITSTimeForHiking__button {
         text-align: center;
-        left: 50%;
-        position: relative;///experiment
-        transform: translate(-50%,0%);///experiment
+        left      : 50%;
+        position  : relative; ///experiment
+        transform : translate(-50%, 0%); ///experiment
         @include adapt-value('margin-bottom', 65, 50, 0);
-    } 
+    }
 }
 
 
@@ -179,22 +206,24 @@
 }
 
 @media (hover:hover) {
-    
+
     .ITSTimeForHiking__button:hover {
         background-color: #deb37e;
         box-shadow      : 0px 0px 0px 5px #54524f;
         color           : white;
-    }    
+    }
 }
+
 @media (hover:none) {
     .ITSTimeForHiking__button {
         transition: all 0.15s;
     }
+
     .ITSTimeForHiking__button:active {
         background-color: #deb37e;
         box-shadow      : 0px 0px 0px 5px #54524f;
         color           : white;
-    }    
+    }
 }
 
 
@@ -203,7 +232,7 @@
     color         : #54524f;
     font-style    : italic;
     font-weight   : 400;
-    font-family   : 'Open Sans',Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family   : 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
     letter-spacing: 1px;
     line-height   : 150%;
 
@@ -211,12 +240,14 @@
     padding-right: 5px;
 
 }
+
 @media (max-width:650px) {
     .ITSTimeForHiking__text {
-    padding-right: 0px;
-       text-align: justify;
-    } 
+        padding-right: 0px;
+        text-align   : justify;
+    }
 }
+
 .ITSTimeForHiking__background {
     position: absolute;
 
@@ -271,7 +302,7 @@
 
 @media (max-width:650px) {
     .ITSTimeForHiking__background {
-transform: scale(1.15);
+        transform      : scale(1.15);
         object-position: 0% 0%;
 
     }
@@ -281,60 +312,62 @@ transform: scale(1.15);
 
 .ITSTimeForHiking__background_top {
     position  : absolute;
-    object-fit: cover;
-    top       : 3%;
-    left      : 0;
-    width     : 100%;
+    z-index   : 0;
+    
 
-    z-index: 0;
+    @media (min-width:1441px) {
+        & {
+            top: -2%;
+        }
+    }
+
+    @media (min-width:601px) and (max-width:767px) {
+        & {
+            top: 4.5%;
+        }
+    }
+
+    @media (min-width:451px) and (max-width:600px) {
+        & {
+            top: 4.5%;
+        }
+    }
+
+    /* @media (max-width:450px) {
+        & {
+            top: 5%;
+        }
+    } */
+    @media (min-width:430px) and (max-width:450px) {
+        & {
+            top: 5%;
+        }
+    }
+
+    @media (max-width:429px) {
+        & {
+            top: 3.5%;
+        }
+    }
+
+    /*
+    @media (min-width:768px) and (max-width:900px) {
+        & {
+            top       : -7%;
+            
+        }   
+    } */
+
+
 }
 
 /*  @media (max-width:767px) {
-    .ITSTimeForHiking__background_top {
+    & {
         top       : 3%;
     }   
 } */
 
-@media (min-width:1441px) {
-    .ITSTimeForHiking__background_top {
-        top: -2%;
-    }
-}
 
-@media (min-width:601px) and (max-width:767px) {
-    .ITSTimeForHiking__background_top {
-        top: 4.5%;
-    }
-}
-
-@media (min-width:451px) and (max-width:600px) {
-    .ITSTimeForHiking__background_top {
-        top: 4.5%;
-    }
-}
-
-/* @media (max-width:450px) {
-    .ITSTimeForHiking__background_top {
-        top: 5%;
-    }
-} */
-@media (min-width:430px) and (max-width:450px) {
-    .ITSTimeForHiking__background_top {
-        top: 5%;
-    }
-}
-@media  (max-width:429px) {
-    .ITSTimeForHiking__background_top {
-        top: 3.5%;
-    }
-}
-/*
-@media (min-width:768px) and (max-width:900px) {
-    .ITSTimeForHiking__background_top {
-        top       : -7%;
-        
-    }   
-} */
 
 
 
@@ -352,11 +385,13 @@ transform: scale(1.15);
         bottom: -200px;
     }
 }
+
 @media (min-width:2400px) {
     .ITSTimeForHiking__background_bottom {
         bottom: -250px;
     }
 }
+
 @media (min-width:1651px) and (max-width:1900px) {
     .ITSTimeForHiking__background_bottom {
         bottom: -180px;

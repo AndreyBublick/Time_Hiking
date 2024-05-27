@@ -1,15 +1,23 @@
 import React, { FC } from 'react';
 import style from './MountainHeader.module.scss';
+import ReactImageGallery from 'react-image-gallery';
+
+import ImageGallery from "react-image-gallery";
+// import stylesheet if you're not already using CSS @import
+import "react-image-gallery/styles/css/image-gallery.css";
 
 
 
 
-export const MountainHeader = ({Child,...props}) => {
+
+export const MountainHeader = ({ Child, images, ...props }) => {
 
     return <div className={style.mountainHeader}>
+       
+        <div className={[style.title_mountains, style.mountainHeader__title].join(' ')}>
+        {images&& <ImageGallery isRTL={true}  slideOnThumbnailOver={true} lazyLoad={true} showNav={false} showThumbnails={false} useBrowserFullscreen={false} showFullscreenButton={false} showPlayButton={false}
+         slideInterval={10000} slideDuration={2000} autoPlay={true} additionalClass={style.image_gallery}  items={images} />} 
 
-
-        <div className={[style.title_mountains,style.mountainHeader__title].join(' ')}>
             <div className={style.title_mountains__body}>
                 <div className={style.title_mountains__container}>
                     <div className={[style.title_mountains__content, style.content].join(' ')}>
@@ -20,10 +28,11 @@ export const MountainHeader = ({Child,...props}) => {
                             <div data-aos-anchor-placement='top-bottom' data-aos="fade-up" data-aos-delay="400" className={style.content__sub_title}>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam quis  
-                                    </p>
+                                    Ut enim ad minim veniam quis
+                                </p>
                             </div>
                             {Child && <Child placeHolder={'Your Email'} />}
+                            <div><img src={images} alt="" /></div>
                         </div>
                     </div>
 
@@ -32,7 +41,7 @@ export const MountainHeader = ({Child,...props}) => {
 
         </div>
 
-       
+
     </div>
 
 

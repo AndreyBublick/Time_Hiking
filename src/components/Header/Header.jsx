@@ -88,10 +88,10 @@ const Header = (props) => {
                 <div onClick={onClickBurger} className={props.isActive ? HeaderStyles.header__burger + ' ' + HeaderStyles._active : HeaderStyles.header__burger}><span></span></div>
                 <div className={props.isActive ? HeaderStyles.header__menu + ' ' + HeaderStyles.menu + ' ' + HeaderStyles._active : HeaderStyles.header__menu + ' ' + HeaderStyles.menu}>
                     <ul className={HeaderStyles.menu__list}>
-                        <li><a href="#" className={HeaderStyles.menu__link}>home</a></li>
-                        <li><a href="#" className={HeaderStyles.menu__link}>menu</a></li>
-                        <li><a href="#" className={HeaderStyles.menu__link}>our story</a></li>
-                        <li><a href="#" className={HeaderStyles.menu__link}>contact us</a></li>
+                        <li><a href="#" className={HeaderStyles.menu__link}><span>home</span></a></li>
+                        <li><a href="#" className={HeaderStyles.menu__link}><span>menu</span></a></li>
+                        <li><a href="#" className={HeaderStyles.menu__link}><span>our story</span></a></li>
+                        <li><a href="#" className={HeaderStyles.menu__link}><span>contact us</span></a></li>
                         {isShowSearch && <li>
                             <div className={props.isSearthActive ? HeaderStyles.menu__searth + ' ' + HeaderStyles._active : HeaderStyles.menu__searth}>
                                 <input onFocus={(e) => { props.setSearthActive(true) }} onBlur={onBlurEvent} onInput={onInputEvent} value={props.textContentSeartah} type="text" />

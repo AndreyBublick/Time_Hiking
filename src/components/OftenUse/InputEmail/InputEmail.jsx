@@ -108,7 +108,7 @@ export const InputEmail = memo(({ placeHolder, ...props }) => {
 
             </div>
             <div className={style.InputEmail__recap}>
-                <ReCAPTCHA ref={recaptchaRef} onChange={prepareForSend} sitekey={'6LchUuYpAAAAAOnaNq_E5ARp1raV9pTS41Iq0_ng'} />
+                <ReCAPTCHA  ref={recaptchaRef} onChange={prepareForSend} sitekey={'6LchUuYpAAAAAOnaNq_E5ARp1raV9pTS41Iq0_ng'} />
 
             </div>
         </div>

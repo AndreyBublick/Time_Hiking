@@ -1,13 +1,14 @@
 @import '../../mixins.scss';
 @import '../../fonts/fonts.scss';
+@import '../../general-parametrs';
 
 .header {
     z-index : 10;
     position: fixed;
     top     : 0;
     left    : 0;
-    
-    width   : 100vw;
+
+    width: 100vw;
     @include adapt-value ('padding-top', 30, 10, 0);
     @include adapt-value ('padding-bottom', 30, 10, 0);
     transition: all 0.5s;
@@ -55,7 +56,7 @@
 }
 
 .header__logo {
-    cursor: pointer;
+    cursor     : pointer;
     z-index    : 11;
     flex-grow  : 0;
     flex-shrink: 0;
@@ -66,8 +67,8 @@
 .header._less .header__logo {
 
     @media (min-width:768px) {
-    @include adapt-value ('flex-basis', 60, 40, 0);
-    
+        @include adapt-value ('flex-basis', 60, 40, 0);
+
     }
 
 }
@@ -194,7 +195,14 @@
 }
 
 @media (max-width:767px) {
+
     .menu__list {
+        
+            display        : flex;
+            justify-content: center;
+            flex-direction : column;
+
+        
 
         @include adapt-value('padding-left', 20, 15, 0);
         @include adapt-value('padding-right', 20, 15, 0);
@@ -238,7 +246,8 @@
         &::after {
             content         : '';
             position        : absolute;
-            bottom          : -75%;
+           
+             @include adapt-value('bottom', -18.5, -13.5, 0);
             left            : 50%;
             transform       : translate(-50%, 0) rotate(0deg);
             width           : 15px;
@@ -273,7 +282,58 @@
     .menu__list>li:last-child {}
 }
 
-.menu__link {}
+
+.menu__link {
+    /* @media (max-width:767px) {
+        display        : flex;
+        justify-content: center;
+    } */
+
+    &>span {
+        display   : block;
+        transition: 0.3s all;
+        position  : relative;
+        transform : scale(1);
+
+        &::before {
+            position: absolute;
+
+            content                    : '';
+            transition                 : inherit;
+            top                        : 100%;
+            height                     : 5px;
+            width                      : 100%;
+            left                       : 0;
+            /*         transform       : translate(); */
+            background-color           : transparent;
+            border-radius              : 10vw;
+        }
+
+
+        @media (min-width:768px) {
+            @media (hover:hover) {
+                &:hover {
+                    transform: scale(1.15);
+
+                }
+
+                &:hover::before {
+
+                    background-color: $textGray;
+                }
+            }
+        }
+
+        @media (hover:none) {
+            &:active::before {
+
+                background-color: $textGray;
+            }
+        }
+
+    }
+}
+
 
 
 .menu__searth {
@@ -318,5 +378,4 @@
 
 .menu__searth._active::before {
     left: 33%;
-
 }

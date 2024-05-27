@@ -93,6 +93,8 @@ position: relative;
   }
   &__recap{
   margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
   }
   
    @media (max-width:320px) {

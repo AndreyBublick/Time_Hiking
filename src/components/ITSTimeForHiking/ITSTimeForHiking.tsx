@@ -1,8 +1,8 @@
 
 import ITSTimeForHikingStyle from './ITSTimeForHiking.module.scss';
-import backgroundBlock from '../../../content/images/ITSTimeForHiking/headerBackground_1.png';
-import backgroundBlockTop from '../../../content/images/ITSTimeForHiking/Shape-1.png';
- import backgroundBlockBottom from '../../../content/images/ITSTimeForHiking/Shape.png';
+import backgroundBlock from '../../content/images/ITSTimeForHiking/headerBackground_1.png';
+import backgroundBlockTop from '../../content/images/ITSTimeForHiking/Shape-1.png';
+ import backgroundBlockBottom from '../../content/images/ITSTimeForHiking/Shape.png';
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
@@ -30,8 +30,8 @@ const ITSTimeForHiking = (props: any) => {
         </div>
 
         <img src={backgroundBlock} className={ITSTimeForHikingStyle.ITSTimeForHiking__background} />
-            <img src={backgroundBlockBottom} className={ITSTimeForHikingStyle.ITSTimeForHiking__background_top}/>
-            <img src={backgroundBlockTop} className={ITSTimeForHikingStyle.ITSTimeForHiking__background_bottom}/>
+           {/*  <img src={backgroundBlockBottom} className={ITSTimeForHikingStyle.ITSTimeForHiking__background_top}/>
+            <img src={backgroundBlockTop} className={ITSTimeForHikingStyle.ITSTimeForHiking__background_bottom}/> */}
         
     </div>;
 };

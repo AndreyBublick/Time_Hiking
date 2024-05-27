@@ -11,73 +11,51 @@
 /// 
 /// 
 
-.mountain{
+.mountain {
     overflow: hidden;
     position: relative;
-    &__title{
+
+    &__title {
         z-index: 2;
-        color: #54524f;
+        color  : #54524f;
     }
-    &__explore{
+
+    &__explore {
         z-index: -1;
-        color: #54524f;
+        color  : #54524f;
     }
 }
 
 
 .title_mountains {
-    overflow:visible;
+    overflow        : visible;
     background-color: rgba(153, 146, 141, 0.9);
     position        : relative;
-    
-    
-@include adapt-value('margin-top',25,5,1);
 
-    font-family     : "Open Sans";
+
+    @include adapt-value('margin-top', 25, 5, 1);
+
+    font-family: "Open Sans";
 
     &::before {
-        content   : '';
-        
-        top       : 0;
-        left      : 0;
-        width     : 100%;
-        height    : 100%;
-        background: url('../../content/images/TitleMountains/Top_.png') 0% 0%/ 300% 19% no-repeat;
-        position  : absolute;
-        animation: wave 80s linear infinite alternate-reverse;
-        @media (max-width:767px) {
-          top: -30px;
-                
-            }
-            @media (max-width:360px) {
-                top: -33px;
-                      
-                  }
-                  @media (min-width:280px) and (max-width:320px) {
-                    top: -35px;
-                          
-                      }
-        
+       
+       
+       
+        @extend %runLine_top;
+
+
     }
 
     &::after {
-        content   : '';
-        top       : 0;
-        left      : 0;
-        width     : 100%;
-        height    : 110%;
-        background: url('../../content/images/TitleMountains/Bottom_.png') 0% 100%/ 150% 19% no-repeat;
-        position  : absolute;
-       z-index:1; 
-       animation: wave2 80s linear infinite alternate-reverse;
-       @media (max-width:767px) {
        
-        height    : 115%;   
-          }
-          @media (max-width:360px) {
-            height    : 115%;
-                    
-                }
+     
+        background-image: url('../../content/images/TitleMountains/Bottom_.png');
+       
+        @extend %runLine_bottom;
+
+        
+
+        
     }
 
 
@@ -92,20 +70,22 @@
         position: relative;
 
         @include adapt-value('min-height', 768, 300, 0);
-        display        : flex;
-        flex-direction : column;
+        display       : flex;
+        flex-direction: column;
+
         &::before {
-            content : '';
-            position: absolute;
+            content   : '';
+            position  : absolute;
             left      : 0;
             top       : 0;
             width     : 100%;
             height    : 100%;
             background: url('../../content/images/TitleMountains/Left_.png') 0% 50%/ 45% 65% no-repeat;
-            animation: increase 10s linear infinite alternate-reverse;
+            animation : increase 10s linear infinite alternate-reverse;
+
             @media (max-width:1200px) {
-            background: url('../../content/images/TitleMountains/Left_.png') 0% 50%/ 75vw 50vw no-repeat;
-                
+                background: url('../../content/images/TitleMountains/Left_.png') 0% 50%/ 75vw 50vw no-repeat;
+
             }
         }
     }
@@ -168,7 +148,7 @@
             @include adapt-value('font-size', 29, 14.5, 0);
 
             color: rgb(219, 219, 219);
-           
+
         }
 
 
@@ -177,14 +157,3 @@
 
     }
 }
-
-
-
-
-
-
-
-
-
-    
-  

@@ -1,40 +1,113 @@
-
-
-$gray:#7f7770;
+$gray       :#7f7770;
 $orangeLight:#deb37e;
-$orange:#e2a355;
-$textGray:#3f3f3f;
+$orange     :#e2a355;
+$textGray   :#3f3f3f;
 
 
 @keyframes wave {
 
-    0%,100%{
+    0%,
+    100% {
 
         background-position: 0% 0%;
     }
-    50%{
+
+    50% {
         background-position: 100% 0%;
 
     }
 }
+
 @keyframes wave2 {
-    0%,100%{
+
+    0%,
+    100% {
 
         background-position: 0% 100%;
     }
-    50%{
+
+    50% {
         background-position: 100% 100%;
 
-    }  
+    }
 }
+
 @keyframes increase {
 
-    0%,100%{
+    0%,
+    100% {
 
         transform: scale(1);
     }
-    50%{
+
+    50% {
         transform: scale(1.1);
 
+    }
+}
+
+%runLine_top {
+     background-image: url('./content/images/animation/Shape.png'); 
+    background-position: 0% 0%;
+    background-size    : 300% 19%;
+    background-repeat  : no-repeat;
+
+    content: '';
+
+    top     : 0;
+    left    : 0;
+    width   : 100%;
+    z-index : 3;
+    height  : 100%;
+    position: absolute;
+
+
+    @media (max-width:767px) {
+        top: -30px;
+
+    }
+
+    @media (max-width:360px) {
+        top: -33px;
+
+    }
+
+    @media (min-width:280px) and (max-width:320px) {
+        top: -35px;
+
+    }
+
+    animation : wave 80s linear infinite alternate-reverse;
+}
+
+
+
+
+
+
+
+%runLine_bottom {
+
+    content : '';
+    top     : 0;
+    left    : 0;
+    width   : 100%;
+    position: absolute;
+    z-index : 1;
+    height  : 110%;
+
+   /*  background-image: url('./content/images/animation/Shape-1.png'); */
+
+    animation: wave2 80s linear infinite alternate-reverse;
+
+
+    background-position: 0% 100%;
+    background-size    : 150% 19%;
+    background-repeat  : no-repeat;
+
+
+    @media (max-width:767px) {
+
+        height: 115%;
     }
 }
