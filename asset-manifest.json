@@ -1,11 +1,17 @@
 {
   "files": {
-    "main.css": "/Time_Hiking/static/css/main.54b34d0b.css",
-    "main.js": "/Time_Hiking/static/js/main.ff6f65f0.js",
+    "main.css": "/Time_Hiking/static/css/main.ca62fa36.css",
+    "main.js": "/Time_Hiking/static/js/main.55a5c8ca.js",
     "static/media/background.png": "/Time_Hiking/static/media/background.7bc0fb66505695cec01f.png",
     "static/media/headerBackground_1.png": "/Time_Hiking/static/media/headerBackground_1.fbfd1aa35f75cbddee07.png",
     "static/media/Gradient Map_.png": "/Time_Hiking/static/media/Gradient Map_.610091051c93125564cd.png",
+    "static/media/03.jpg": "/Time_Hiking/static/media/03.322aceeaa9d5a6029e5b.jpg",
+    "static/media/06.jpg": "/Time_Hiking/static/media/06.271a33e2696751c2e32c.jpg",
+    "static/media/02.jpg": "/Time_Hiking/static/media/02.e8b9d533d49e411984ed.jpg",
+    "static/media/01.jpg": "/Time_Hiking/static/media/01.bb885eceff8389a9cf2c.jpg",
     "static/media/Gradient Map2_.png": "/Time_Hiking/static/media/Gradient Map2_.49ca4a1e1304ccc421c3.png",
+    "static/media/04.jpg": "/Time_Hiking/static/media/04.3c80743d48526f8cbeea.jpg",
+    "static/media/05.jpg": "/Time_Hiking/static/media/05.5ffebbf2430ea135a510.jpg",
     "static/media/Place_Your_Design_Here_2.png": "/Time_Hiking/static/media/Place_Your_Design_Here_2.99af03d68a464f9e0343.png",
     "static/media/Place_Your_Design_Here_1.png": "/Time_Hiking/static/media/Place_Your_Design_Here_1.c302d3a32b518f7738b0.png",
     "static/media/Place_Your_Image Here_3.png": "/Time_Hiking/static/media/Place_Your_Image Here_3.14ab88ea8e6300462932.png",
@@ -16,18 +22,17 @@
     "static/media/Bottom_.png": "/Time_Hiking/static/media/Bottom_.63c5febb37d5332cebb7.png",
     "static/media/Shape-1.png": "/Time_Hiking/static/media/Shape-1.a91a5ab45db216a44586.png",
     "static/media/Shape.png": "/Time_Hiking/static/media/Shape.a8a07efab518df531456.png",
-    "static/media/Top_.png": "/Time_Hiking/static/media/Top_.d793fea680c118028342.png",
     "static/media/fontello.eot?18376885": "/Time_Hiking/static/media/fontello.5a1acfceee29863e7ddf.eot",
     "static/media/fontello.ttf?18376885": "/Time_Hiking/static/media/fontello.2f35311513f1565d8af6.ttf",
     "static/media/fontello.woff?18376885": "/Time_Hiking/static/media/fontello.a755db289f4621968b32.woff",
     "static/media/fontello.woff2?18376885": "/Time_Hiking/static/media/fontello.d82ba31aa6751a690063.woff2",
     "static/media/fontello.svg?18376885": "/Time_Hiking/static/media/fontello.5898d4795eb5be7eed75.svg",
     "index.html": "/Time_Hiking/index.html",
-    "main.54b34d0b.css.map": "/Time_Hiking/static/css/main.54b34d0b.css.map",
-    "main.ff6f65f0.js.map": "/Time_Hiking/static/js/main.ff6f65f0.js.map"
+    "main.ca62fa36.css.map": "/Time_Hiking/static/css/main.ca62fa36.css.map",
+    "main.55a5c8ca.js.map": "/Time_Hiking/static/js/main.55a5c8ca.js.map"
   },
   "entrypoints": [
-    "static/css/main.54b34d0b.css",
-    "static/js/main.ff6f65f0.js"
+    "static/css/main.ca62fa36.css",
+    "static/js/main.55a5c8ca.js"
   ]
 }
