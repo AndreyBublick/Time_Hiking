@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
 import style from './MountainHeader.module.scss';
-import ReactImageGallery from 'react-image-gallery';
+
 
 import ImageGallery from "react-image-gallery";
 // import stylesheet if you're not already using CSS @import
 import "react-image-gallery/styles/css/image-gallery.css";
+import { useSelector } from 'react-redux';
+import { getIsDarkTheme } from '../../../redux/header-selectors.ts';
 
 
 
@@ -12,7 +14,10 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 export const MountainHeader = ({ Child, images, ...props }) => {
 
-    return <div className={style.mountainHeader}>
+    const isDarkTheme = useSelector(getIsDarkTheme);
+
+
+    return <div className={[isDarkTheme?style._Dark:'',,style.mountainHeader].join(' ')}>
        
         <div className={[style.title_mountains, style.mountainHeader__title].join(' ')}>
         {images&& <ImageGallery isRTL={true}  slideOnThumbnailOver={true} lazyLoad={true} showNav={false} showThumbnails={false} useBrowserFullscreen={false} showFullscreenButton={false} showPlayButton={false}

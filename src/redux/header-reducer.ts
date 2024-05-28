@@ -1,11 +1,13 @@
 const TOGGLE_ACTIVE_MODE = 'TOGGLE_ACTIVE_MODE';
 const SET_TEXT_SEARTH_CONTENT = 'setTextSearthContent';
+const SET_DARK_THEME = 'SET_DARK_THEME';
 
 
 
 let initialState = {
     isActive: false,
     textSearthContent: '',
+    isDarkTheme:false,
 };
 
 
@@ -24,6 +26,10 @@ const headerReducer = (state = initialState, action: any): initialStateType => {
         }
         case SET_TEXT_SEARTH_CONTENT: {
             let stateCopy = {...state, textSearthContent:action.textSearth,};
+            return stateCopy;
+        }
+        case SET_DARK_THEME: {
+            let stateCopy = {...state, isDarkTheme:action.isDarkTheme};
             return stateCopy;
         }
         default:
@@ -50,6 +56,18 @@ export type setTextSearthContentACType = {
     type: typeof SET_TEXT_SEARTH_CONTENT,
     textSearth: string,
 };
+
+export const setDarkThemeAC = (isDarkTheme:boolean):setDarkThemeACtype=>{
+return {type:SET_DARK_THEME, isDarkTheme}
+};
+
+type setDarkThemeACtype = {
+    type:typeof SET_DARK_THEME,
+    isDarkTheme:boolean,
+};
+
+
+
 
 
 export default headerReducer;

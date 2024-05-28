@@ -4,6 +4,8 @@ $orange     :#e2a355;
 $textGray   :#3f3f3f;
 
 
+
+
 @keyframes wave {
 
     0%,
@@ -79,13 +81,6 @@ $textGray   :#3f3f3f;
 
     animation : wave 80s linear infinite alternate-reverse;
 }
-
-
-
-
-
-
-
 %runLine_bottom {
 
     content : '';
@@ -111,3 +106,6 @@ $textGray   :#3f3f3f;
         height: 115%;
     }
 }
+%increaseAnimation {
+    animation : increase 10s linear infinite alternate-reverse;
+};

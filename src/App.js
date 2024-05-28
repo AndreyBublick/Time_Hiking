@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react';
-import './App.module.scss';
+import './App.scss';
 import Features from './components/Features/Features.jsx';
 import HeaderContainer from './components/Header/HeaderContainer.tsx';
 import ITSTimeForHiking from './components/ITSTimeForHiking/ITSTimeForHiking.tsx';
@@ -13,6 +13,8 @@ import { BrieflyAboutTheMainThing } from './components/BrieflyAboutTheMainThing/
 import TitleHere from './components/TitleHere/TitleHere.jsx';
 import { Footer } from './components/Footer/Footer.jsx';
 import './fonts/fontello/css/fontello.css';
+import { useSelector } from 'react-redux';
+import { getIsDarkTheme } from './redux/header-selectors.ts';
 
 const App = () => {
 
@@ -26,8 +28,10 @@ const App = () => {
   }, []);
 
 
+const isDarkTheme = useSelector(getIsDarkTheme);
+
   return (
-    <div className="App">
+    <div className={[isDarkTheme ? 'App _DARK_theme':'App']}>
       <HeaderContainer />
       <ITSTimeForHiking />
       <TitleBlock />

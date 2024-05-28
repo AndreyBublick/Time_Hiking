@@ -7,7 +7,7 @@ import { getCardsData } from '../../../redux/brieflyAboutTheMainThing-selectors.
 
 
 
-export const Cards = (props) => {
+export const Cards = ({isDarkTheme,...props}) => {
 
     const cardsData = useSelector(getCardsData);
 
@@ -40,7 +40,7 @@ export const Cards = (props) => {
 
 
 
-    return <div className={[style.cards].join(' ')}>
+    return <div className={[style.cards,isDarkTheme ? style._Dark:''].join(' ')}>
 
         <div className={[style.cards__body].join(' ')}>
 

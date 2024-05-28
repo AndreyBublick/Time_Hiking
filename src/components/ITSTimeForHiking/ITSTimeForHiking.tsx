@@ -1,14 +1,17 @@
 
 import ITSTimeForHikingStyle from './ITSTimeForHiking.module.scss';
 import backgroundBlock from '../../content/images/ITSTimeForHiking/headerBackground_1.png';
-import backgroundBlockTop from '../../content/images/ITSTimeForHiking/Shape-1.png';
- import backgroundBlockBottom from '../../content/images/ITSTimeForHiking/Shape.png';
+
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { getIsDarkTheme } from '../../redux/header-selectors.ts';
+import { useSelector } from 'react-redux';
 
 const ITSTimeForHiking = (props: any) => {
-    return <div id={'start-page'} className={ITSTimeForHikingStyle.ITSTimeForHiking}>
+    const isDarkTheme = useSelector(getIsDarkTheme);
+
+    return <div id={'start-page'} className={[ITSTimeForHikingStyle.ITSTimeForHiking,isDarkTheme ? ITSTimeForHikingStyle._Dark:''].join(' ')}>
         <div className={ITSTimeForHikingStyle.ITSTimeForHiking__container +' '+ 'container'}>
             <div className={ITSTimeForHikingStyle.ITSTimeForHiking__body}>
                 <div className={ITSTimeForHikingStyle.ITSTimeForHiking__content}>

@@ -2,7 +2,11 @@
 @import '../../general-parametrs';
 @import '../../fonts/fonts';
 
-
+._Dark.footer{
+    &::before {
+        opacity: 0.85;
+    }   
+}
 .footer {
     position: relative;
 
@@ -32,8 +36,8 @@
 
     &__container {
         position : relative;
-        z-index  : 2;
-        max-width: 1300px;
+        z-index  : 4;
+        max-width: 1370px;
 
     }
 
@@ -131,7 +135,7 @@
         ul {
             li {
 
-                @include adapt-value(font-size, 18.5, 16, 0);
+                @include adapt-value(font-size, 17.0, 16, 0);
                 line-height: 1.762;
 
 

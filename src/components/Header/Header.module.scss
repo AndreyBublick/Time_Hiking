@@ -2,21 +2,31 @@
 @import '../../fonts/fonts.scss';
 @import '../../general-parametrs';
 
-.header {
-    z-index : 10;
-    position: fixed;
-    top     : 0;
-    left    : 0;
 
-    width: 100vw;
+.Dark::before {
+    background-color: red;
+}
+
+.header {
+    z-index   : 10;
+    position  : fixed;
+    top       : 0;
+    left      : 0;
+    transition: 0.2s all;
+    width     : 100vw;
     @include adapt-value ('padding-top', 30, 10, 0);
     @include adapt-value ('padding-bottom', 30, 10, 0);
     transition: all 0.5s;
+
+}
+
+.headerlol {
+    color: green;
 }
 
 
-
 .header::before {
+    transition      : inherit;
     content         : '';
     position        : absolute;
     top             : 0;
@@ -28,9 +38,15 @@
 
 }
 
+.header._Dark::before {
+
+    background-color: $textGray;
+
+}
+
 @media (min-width:768px) {
     .header._less {
-        background-color: aquamarine;
+
         @include adapt-value ('padding-top', 15, 10, 0);
         @include adapt-value ('padding-bottom', 15, 10, 0);
 
@@ -104,6 +120,14 @@
     content: '';
 }
 
+.header._Dark .header__burger::before,
+.header._Dark .header__burger::after,
+.header._Dark .header__burger>span {
+    background-color: white;
+}
+
+
+
 .header__burger::before,
 .header__burger::after,
 .header__burger>span {
@@ -167,6 +191,16 @@
     transition: all 0.3s;
 }
 
+.header._Dark {
+    @media (max-width:767px) {
+        .header__menu {
+            background-color: rgba(92, 84, 84, 0.9);
+
+        }
+
+    }
+}
+
 @media (max-width:767px) {
     .header__menu {
         position  : fixed;
@@ -176,7 +210,7 @@
         height          : 100dvh;
         background-color: rgba(255, 255, 255, 0.7);
         top             : 0;
-        left            : -100%;
+        left            : -100vw;
 
     }
 
@@ -197,12 +231,12 @@
 @media (max-width:767px) {
 
     .menu__list {
-        
-            display        : flex;
-            justify-content: center;
-            flex-direction : column;
 
-        
+        display        : flex;
+        justify-content: center;
+        flex-direction : column;
+
+
 
         @include adapt-value('padding-left', 20, 15, 0);
         @include adapt-value('padding-right', 20, 15, 0);
@@ -230,6 +264,29 @@
     font-family   : 'Open Sans', Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
+.header._Dark .menu__list>li a {
+    color: white;
+}
+
+
+
+.header._Dark {
+    @media (max-width:767px) {
+        .menu__list>li:not(:last-child) {
+
+
+            &::before,
+            &::after {
+
+                background-color: rgb(200, 200, 200);
+            }
+
+        }
+
+    }
+}
+
+
 @media (max-width:767px) {
     .menu__list>li {
 
@@ -244,10 +301,10 @@
 
         &::before,
         &::after {
-            content         : '';
-            position        : absolute;
-           
-             @include adapt-value('bottom', -18.5, -13.5, 0);
+            content : '';
+            position: absolute;
+
+            @include adapt-value('bottom', -18.5, -13.5, 0);
             left            : 50%;
             transform       : translate(-50%, 0) rotate(0deg);
             width           : 15px;
@@ -320,6 +377,7 @@
                 &:hover::before {
 
                     background-color: $textGray;
+
                 }
             }
         }
@@ -334,6 +392,26 @@
     }
 }
 
+.header._Dark .menu__link>span {
+    @media (min-width:768px) {
+        @media (hover:hover) {
+
+
+            &:hover::before {
+
+                background-color: rgb(200, 200, 200);
+
+            }
+        }
+    }
+
+    @media (hover:none) {
+        &:active::before {
+
+            background-color: whitesmoke;
+        }
+    }
+}
 
 
 .menu__searth {
@@ -357,9 +435,12 @@
 
 }
 
+
 .menu__searth._active>input {
     background-color: #68635f;
 }
+
+
 
 .menu__searth::before {
 

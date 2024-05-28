@@ -1,0 +1,23 @@
+@import './mixins';
+
+@import './general-parametrs';
+
+
+.App {
+
+  overflow-x: hidden;
+transition: 0.2s all;
+}
+
+.App._DARK_theme {
+
+  background-color: black;
+}
+
+
+
+
+
+.root {
+  overflow-x: hidden;
+}

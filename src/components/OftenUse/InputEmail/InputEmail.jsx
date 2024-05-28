@@ -1,7 +1,7 @@
 
 
 import style from './InputEmail.module.scss';
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { ButtonMaket } from "../Buttons/Button/ButtonMaket.jsx";
 import { ConfigProvider } from 'antd';
 import emailjs from '@emailjs/browser';
@@ -11,17 +11,27 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 
 
+
 export const InputEmail = memo(({ placeHolder, ...props }) => {
+   /*  const isDarkTheme = useSelector(getIsDarkTheme); */
     const recaptcha = useRef();
     const [valueEmail, setValueEmail] = useState('');
     const [isLoad, setIsLoad] = useState(false);
     const [isGoSend, setIsGoSend] = useState(true);
+  
+
+/* 
+useEffect(()=>{
+    setDark(isDarkTheme);
+},[isDarkTheme]);
+ */
 
     const recaptchaRef = useRef();
     const handleReset = () => {
         setIsGoSend(true);
         recaptchaRef.current.reset();
-      };
+        
+    };
 
 
 
@@ -32,13 +42,13 @@ export const InputEmail = memo(({ placeHolder, ...props }) => {
     };
 
     const sendValueInputEmail = (e) => {
-        
 
-        if(!(valueEmail==='')&&!(valueEmail.startsWith(' '))){
+
+        if (!(valueEmail === '') && !(valueEmail.startsWith(' '))) {
             setIsLoad(true);
 
             e.preventDefault();    //This is important, i'm not sure why, but the email won't send without it
-    
+
             emailjs.sendForm('service_ddi3iyn', 'template_vjw3z28', e.target, 'JATD2Y0X_IKx-MWjM')
                 .then((result) => {
                     setValueEmail('');
@@ -49,18 +59,18 @@ export const InputEmail = memo(({ placeHolder, ...props }) => {
                 }, (error) => {
                     console.log(error.text);
                 });
-    
+
         }
-        else{
-            e.preventDefault(); 
+        else {
+            e.preventDefault();
         }
-       
+
 
 
     };
 
     const prepareForSend = () => {
-        setIsGoSend((prev)=> !prev);
+        setIsGoSend((prev) => !prev);
     };
 
 
@@ -108,7 +118,7 @@ export const InputEmail = memo(({ placeHolder, ...props }) => {
 
             </div>
             <div className={style.InputEmail__recap}>
-                <ReCAPTCHA  ref={recaptchaRef} onChange={prepareForSend} sitekey={'6LchUuYpAAAAAOnaNq_E5ARp1raV9pTS41Iq0_ng'} />
+                <ReCAPTCHA theme={'dark'} ref={recaptchaRef} onChange={prepareForSend} sitekey={'6LchUuYpAAAAAOnaNq_E5ARp1raV9pTS41Iq0_ng'} />
 
             </div>
         </div>

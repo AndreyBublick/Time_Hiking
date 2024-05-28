@@ -1,12 +1,17 @@
 import React, { FC } from 'react';
 import style from './BrieflyAboutTheMainThing.module.scss';
 import { Cards } from './Cards/Cards';
+import { useSelector } from 'react-redux';
+import { getIsDarkTheme } from '../../redux/header-selectors.ts';
 
 
 
 export const BrieflyAboutTheMainThing = (props) => {
 
-    return <div className={[style.BrieflyAboutTheMainThing].join(' ')}>
+const isDarkTheme = useSelector(getIsDarkTheme);
+
+
+    return <div className={[style.BrieflyAboutTheMainThing,isDarkTheme ? style._Dark:''].join(' ')}>
 
         <div className={[style.BrieflyAboutTheMainThing__container, 'container'].join(' ')}>
 
@@ -15,7 +20,7 @@ export const BrieflyAboutTheMainThing = (props) => {
 
                 <div className={[style.BrieflyAboutTheMainThing__cards].join(' ')}>
 
-                    <Cards />
+                    <Cards isDarkTheme={isDarkTheme} />
 
 
 
