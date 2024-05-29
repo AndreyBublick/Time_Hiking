@@ -1,16 +1,19 @@
 import { useSelector } from 'react-redux';
 import styleFeatures from './Features.module.scss';
 import { getFeaturesCardsSelector } from '../../redux/features-selectors.ts';
-import { Button, ConfigProvider } from 'antd';
+import { ConfigProvider, Modal } from 'antd';
 import { memo, useEffect, useState } from 'react';
 
 
 import { ButtonMaket } from '../OftenUse/Buttons/Button//ButtonMaket.jsx';
-import { v4 as uuidv4 } from 'uuid';
 
 
-const Features = memo( (props) => {
-    
+import { getIsDarkTheme } from '../../redux/header-selectors.ts';
+
+
+const Features = memo((props) => {
+
+    const isDarkTheme = useSelector(getIsDarkTheme);
     ////прокидывает state из контекста
     const cardsData = useSelector(getFeaturesCardsSelector);
 
@@ -19,10 +22,24 @@ const Features = memo( (props) => {
     const [isDisabledButton, setIsDisabledButton] = useState(false);
     const [newCardsData, setNewCardsData] = useState([]);
     const [сards, setCards] = useState([]);
- 
+
     /*     const [pointsEvent, setPointsEvent] = useState([]); */
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [contentModal, setContentModal] = useState({});
 
 
+    const showModal = () => {
+        setIsModalOpen(true);
+
+    };
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
 
 
 
@@ -68,23 +85,23 @@ const Features = memo( (props) => {
 
 
 
-    
+
 
     useEffect(() => {
-        
+
         addCards();
 
 
-        
+
 
     }, [count]);
 
 
 
-   
 
-    
-   
+
+
+
 
 
 
@@ -96,70 +113,8 @@ const Features = memo( (props) => {
 
     let cards = newCardsData.map((item, index, array) => {
 
-        if (window.innerWidth < 1200) { /* первый параметр точка самой карточки 2.Параметр часть viewport */
-            if (index % 2 === 0) {
-
-                return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-left" data-aos-delay="350" className={[styleFeatures.item, 'event'].join(' ')}>
-                    <div className={styleFeatures.item__body}>
-
-                        <div className={styleFeatures.item__picture}>
-                            <div className={styleFeatures.item__image}>
-                                <img src={item.image} alt={'#'} />
-
-                            </div>
-
-                        </div>
-
-                        <div className={styleFeatures.item__content}>
-                            <div className={styleFeatures.item__title}>
-                                {item.cardTitle}
-
-                            </div>
-                            <div className={styleFeatures.item__text}>
-                                {item.cardText}
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>;
-
-            }
-            else {
-                
-
-                return <div data-aos-anchor-placement='top-bottom' data-aos="fade-right" data-aos-delay="350" key={item.id} className={[styleFeatures.item, 'event'].join(' ')}>
-                    <div className={styleFeatures.item__body}>
-
-                        <div className={styleFeatures.item__picture}>
-                            <div className={styleFeatures.item__image}>
-                                <img src={item.image} alt={'#'} />
-
-                            </div>
-
-                        </div>
-
-                        <div className={styleFeatures.item__content}>
-                            <div className={styleFeatures.item__title}>
-                                {item.cardTitle}
-
-                            </div>
-                            <div className={styleFeatures.item__text}>
-                                {item.cardText}
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>;
-            }
-        }
-        return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade" data-aos-delay="150" className={[styleFeatures.item, 'event'].join(' ')}>
-            <div className={styleFeatures.item__body}>
+        const generateCardBody = (props) => {
+            return <div onClick={() => { showModal(); setContentModal({ image: item.image, title: item.cardTitle, text: item.cardText, }); }} className={styleFeatures.item__body}>
 
                 <div className={styleFeatures.item__picture}>
                     <div className={styleFeatures.item__image}>
@@ -183,6 +138,32 @@ const Features = memo( (props) => {
 
 
             </div>
+
+
+
+
+        };
+
+
+
+        if (window.innerWidth < 1200) { /* первый параметр точка самой карточки 2.Параметр часть viewport */
+            if (index % 2 === 0) {
+
+                return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-left" data-aos-delay="350" className={[styleFeatures.item, 'event'].join(' ')}>
+                    {generateCardBody()}
+                </div>;
+
+            }
+            else {
+
+
+                return <div data-aos-anchor-placement='top-bottom' data-aos="fade-right" data-aos-delay="350" key={item.id} className={[styleFeatures.item, 'event'].join(' ')}>
+                    {generateCardBody()}
+                </div>;
+            }
+        }
+        return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade" data-aos-delay="150" className={[styleFeatures.item, 'event'].join(' ')}>
+            {generateCardBody()}
         </div>;
 
 
@@ -190,14 +171,62 @@ const Features = memo( (props) => {
 
     });
 
+    /*  const Icon = ()=>{
+         return <div className={styleFeatures._Icon}>X</div>
+     }; */
 
 
-    return <div className={styleFeatures.features}>
+    return <section className={[styleFeatures.features,isDarkTheme? styleFeatures._Dark: ''].join(' ')}>
+        <ConfigProvider
+            theme={{
+
+                components: {
+
+                    Modal: {
+                        titleFontSize: '2rem',
+
+                        contentBg: isDarkTheme ? '#7f7770' : '#ffffff',
+                        headerBg: isDarkTheme ? '#7f7770' : '#ffffff',
+                        titleColor: isDarkTheme ? '#fff' : '#3f3f3f',
+                        colorText: isDarkTheme ? '#fff' : 'black',
+                        fontSize: '1.6rem',
+                        colorBgMask: 'rgba(50,47,44,0.8)',
+                        colorIcon: isDarkTheme ? '#fff' : 'black',
+                        colorIconHover: 'red',
+
+
+
+
+                    },
+                },
+
+            }}
+        >
+
+            <Modal closeIcon={null} footer={null} title={contentModal.title} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <div onClick={handleOk} className={isDarkTheme ? styleFeatures.item__Icon_dark_theme:styleFeatures.item__Icon_white_theme}>
+                    
+
+                </div>
+
+                <div style={{ marginBottom: '20px' }} className={styleFeatures.item__picture}>
+                    <div className={styleFeatures.item__image}>
+                        <img src={contentModal.image} alt={'#'} />
+
+                    </div>
+
+                </div>
+                <p>{contentModal.text}</p>
+
+
+            </Modal>
+        </ConfigProvider>
+
         <div className={[styleFeatures.container, 'container'].join(' ')} >
             <div className={styleFeatures.body}>
                 <div className={[styleFeatures.items, 'features__event_block'].join(' ')}>
                     {cards}
-                    
+
 
                 </div>
                 {!isDisabledButton && <div className={[styleFeatures.show_more_button, 'button'].join(' ')}>
@@ -233,7 +262,7 @@ const Features = memo( (props) => {
                 </div>}
             </div>
         </div>
-    </div>
+    </section>
 
 });
 

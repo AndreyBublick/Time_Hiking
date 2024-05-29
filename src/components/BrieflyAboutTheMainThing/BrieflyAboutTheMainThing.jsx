@@ -11,7 +11,7 @@ export const BrieflyAboutTheMainThing = (props) => {
 const isDarkTheme = useSelector(getIsDarkTheme);
 
 
-    return <div className={[style.BrieflyAboutTheMainThing,isDarkTheme ? style._Dark:''].join(' ')}>
+    return <section className={[style.BrieflyAboutTheMainThing,isDarkTheme ? style._Dark:''].join(' ')}>
 
         <div className={[style.BrieflyAboutTheMainThing__container, 'container'].join(' ')}>
 
@@ -50,6 +50,6 @@ const isDarkTheme = useSelector(getIsDarkTheme);
 
 
 
-    </div>
+    </section>
 
 };

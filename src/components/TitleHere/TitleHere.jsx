@@ -32,7 +32,7 @@ const TitleHere = memo((props) => {
     );
 
 
-    return <div className={style.TitleHere}>
+    return <section className={style.TitleHere}>
         <div className={style.TitleHere__body}>
 
 
@@ -40,7 +40,7 @@ const TitleHere = memo((props) => {
             <MountainHeader images={images} Child={InputEmail} />
 
         </div>
-    </div>
+    </section>
 });
 
 export default TitleHere;

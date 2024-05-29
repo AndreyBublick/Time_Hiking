@@ -36,13 +36,13 @@ export const TitleMountains = memo((props) => {
         );
 
 
-    return <div className={[style.mountain,isDarkTheme?style._Dark:''].join(' ')}>
+    return <section className={[style.mountain,isDarkTheme?style._Dark:''].join(' ')}>
 
 
         <MountainHeader images={images}/>
 
         <Explore  />
-    </div>
+    </section>
 
 
 

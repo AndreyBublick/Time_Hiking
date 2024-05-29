@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 const ITSTimeForHiking = (props: any) => {
     const isDarkTheme = useSelector(getIsDarkTheme);
 
-    return <div id={'start-page'} className={[ITSTimeForHikingStyle.ITSTimeForHiking,isDarkTheme ? ITSTimeForHikingStyle._Dark:''].join(' ')}>
+    return <section id={'start-page'} className={[ITSTimeForHikingStyle.ITSTimeForHiking,isDarkTheme ? ITSTimeForHikingStyle._Dark:''].join(' ')}>
         <div className={ITSTimeForHikingStyle.ITSTimeForHiking__container +' '+ 'container'}>
             <div className={ITSTimeForHikingStyle.ITSTimeForHiking__body}>
                 <div className={ITSTimeForHikingStyle.ITSTimeForHiking__content}>
@@ -36,6 +36,6 @@ const ITSTimeForHiking = (props: any) => {
            {/*  <img src={backgroundBlockBottom} className={ITSTimeForHikingStyle.ITSTimeForHiking__background_top}/>
             <img src={backgroundBlockTop} className={ITSTimeForHikingStyle.ITSTimeForHiking__background_bottom}/> */}
         
-    </div>;
+    </section>;
 };
 export default ITSTimeForHiking;

@@ -10,7 +10,7 @@ type propsType = {
 
 export const TitleBlock: FC<propsType> = (props) => {
 
-    return <div className={TitleBlockstyle.titleBlock}>
+    return <section className={TitleBlockstyle.titleBlock}>
         <div className={[TitleBlockstyle.titleBlock__container, 'container'].join(' ')}>
             <div className={TitleBlockstyle.titleBlock__body}>
                 <h2 className={TitleBlockstyle.title}>
@@ -24,6 +24,6 @@ export const TitleBlock: FC<propsType> = (props) => {
 
 
 
-    </div>;
+    </section>;
 
 };
