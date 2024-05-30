@@ -12,7 +12,6 @@ import { useSelector } from 'react-redux';
 
 
 export const Footer = memo((props) => {
-
     const isDarkTheme = useSelector(getIsDarkTheme);
 
     return <footer data-aos="zoom-in" data-aos-delay="600" className={[style.footer,isDarkTheme ? style._Dark:''].join(' ')}>

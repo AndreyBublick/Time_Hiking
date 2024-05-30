@@ -1,20 +1,28 @@
 
 import { useEffect } from 'react';
 import './App.scss';
-import Features from './components/Features/Features.jsx';
-import HeaderContainer from './components/Header/HeaderContainer.tsx';
-import ITSTimeForHiking from './components/ITSTimeForHiking/ITSTimeForHiking.tsx';
-import { TitleBlock } from './components/TitleBlock/TitleBlock.tsx';
-import { TwoPartBlocks } from './components/TwoPartBlocks/TwoPartBlocks.jsx';
+
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { TitleMountains } from './components/TitleMountains/TitleMountains.jsx';
-import { BrieflyAboutTheMainThing } from './components/BrieflyAboutTheMainThing/BrieflyAboutTheMainThing.jsx';
-import TitleHere from './components/TitleHere/TitleHere.jsx';
-import { Footer } from './components/Footer/Footer.jsx';
+
 import './fonts/fontello/css/fontello.css';
 import { useSelector } from 'react-redux';
 import { getIsDarkTheme } from './redux/header-selectors.ts';
+import { Routes, Route } from 'react-router-dom';
+import { HomePage } from './pages/HomePage/HomePage.jsx';
+import { MenuPage } from './pages/MenuPage/MenuPage.jsx';
+import { StoryPage } from './pages/StoryPage/StoryPage.jsx';
+import { ContactsPage } from './pages/ContactsPage/ContactsPage.jsx';
+
+
+
+
+export const scrollToTop = () => {
+  const scrollerElement = document.getElementById('start-page');
+  scrollerElement.scrollIntoView({
+      behavior: 'smooth',
+  });
+};
 
 const App = () => {
 
@@ -28,22 +36,31 @@ const App = () => {
   }, []);
 
 
-const isDarkTheme = useSelector(getIsDarkTheme);
-
+  const isDarkTheme = useSelector(getIsDarkTheme);
+  
   return (
-    <div className={[isDarkTheme ? 'App _DARK_theme':'App']}>
-      <HeaderContainer />
-      <ITSTimeForHiking />
-      <TitleBlock />
-      <Features />
-      <TwoPartBlocks />
-      <TitleMountains />
-      <BrieflyAboutTheMainThing />
-      <TitleHere />
-      <Footer />
+
+    <div id={'start-page'} className={[isDarkTheme ? 'App _DARK_theme' : 'App']}>
+
+      
+
+        <Routes>
+
+          <Route path='/home/' element={<HomePage />} />
+          <Route path='/menu' element={<MenuPage />} />
+          <Route path='/story' element={<StoryPage />} />
+          <Route path='/contacts' element={<ContactsPage />} />
+          
+          <Route path='/' element={<HomePage />} />
+
+
+
+        </Routes>
+      
 
 
     </div>
+
   );
 }
 

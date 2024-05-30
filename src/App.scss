@@ -3,15 +3,23 @@
 @import './general-parametrs';
 
 
+
 .App {
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
-transition: 0.2s all;
+  transition: 0.3s all;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  
+
+
 }
 
 .App._DARK_theme {
 
-  background-color: black;
+  background-color: #3f3f3f;
 }
 
 
@@ -20,4 +28,14 @@ transition: 0.2s all;
 
 .root {
   overflow-x: hidden;
+}
+ /*  $www:100dvh - 30px; */
+
+
+.wrapper{
+ flex: 1 1 100%;
+ 
+ /* @include adapt-value('padding-top', 300, 260, 0); */
+ @include adapt-value('padding-top', 143.90, 62.13, 0); 
+ 
 }

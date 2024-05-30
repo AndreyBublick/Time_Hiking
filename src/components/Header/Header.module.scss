@@ -3,26 +3,26 @@
 @import '../../general-parametrs';
 
 
-.Dark::before {
-    background-color: red;
-}
+
 
 .header {
     z-index   : 10;
     position  : fixed;
     top       : 0;
     left      : 0;
-    transition: 0.2s all;
+    transition: 0.3s all;
     width     : 100vw;
-    @include adapt-value ('padding-top', 30, 10, 0);
-    @include adapt-value ('padding-bottom', 30, 10, 0);
-    transition: all 0.5s;
+     @include adapt-value ('padding-top', 30, 10, 0);
+    @include adapt-value ('padding-bottom', 30, 10, 0); 
+    
+    
+    min-width: 280px;
+    overflow: hidden;
+
 
 }
 
-.headerlol {
-    color: green;
-}
+
 
 
 .header::before {
@@ -54,6 +54,7 @@
 }
 
 .header__container {
+    
     max-width: 1350px;
     margin   : 0 auto;
     padding  : 0 20px;
@@ -429,12 +430,12 @@
     color      : white;
     line-height: 255%;
     padding    : 0 15px;
-    max-width  : 180px;
-
+    /* max-width  : 180px; */
+    @include adapt-value('max-width', 180, 155, 0);
 
 
 }
-
+/////////////////// /// //// /// / / / /
 
 .menu__searth._active>input {
     background-color: #68635f;

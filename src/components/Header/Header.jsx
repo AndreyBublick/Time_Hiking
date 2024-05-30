@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react';
 import { Theme } from './Theme/Theme';
 import { getIsDarkTheme } from '../../redux/header-selectors.ts';
 import { useSelector } from 'react-redux';
-
+import { NavLink, useNavigate } from 'react-router-dom';
+import { scrollToTop } from '../../App.js';
 
 
 
@@ -17,11 +18,14 @@ import { useSelector } from 'react-redux';
 export const Header = (props) => {
 
 
+    
+
+
     const isDarkTheme = useSelector(getIsDarkTheme);
     const [isShowSearch, setIsShowSearch] = useState(true);
     const [isHeaderLess, setIsHeaderLess] = useState(false);
     const [isChangePositionTheme, setIsChangePositionTheme] = useState(false);
-
+    const navigate = useNavigate();
 
     const changePositionTheme = () => {
         if (window.innerWidth <= 767) {
@@ -89,10 +93,12 @@ export const Header = (props) => {
 
 
     const scrollStartPage = () => {
-        const scrollerElement = document.getElementById('start-page');
-        scrollerElement.scrollIntoView({
-            behavior: 'smooth',
-        });
+        navigate('/home');
+        
+
+        scrollToTop();
+
+
     };
 
     const onBlurEvent = (e) => {
@@ -141,10 +147,13 @@ export const Header = (props) => {
 
 
 
-                        <li><a href="#" className={HeaderStyles.menu__link}><span>home</span></a></li>
-                        <li><a href="#" className={HeaderStyles.menu__link}><span>menu</span></a></li>
-                        <li><a href="#" className={HeaderStyles.menu__link}><span>our story</span></a></li>
-                        <li><a href="#" className={HeaderStyles.menu__link}><span>contact us</span></a></li>
+                       {/*  <li><NavLink onClick={scrollStartPage} to="/home" className={HeaderStyles.menu__link}><span>home</span></NavLink></li> */}
+
+                        <NavigateNavLink  link={"/home"} text={'home'} />
+                        <NavigateNavLink  link={"/menu"} text={'menu'} />
+                        <NavigateNavLink  link={"/story"} text={'our story'} />
+                        <NavigateNavLink  link={"/contacts"} text={'contact us'} />
+                    
                         {isShowSearch && <li>
                             <div className={props.isSearthActive ? HeaderStyles.menu__searth + ' ' + HeaderStyles._active : HeaderStyles.menu__searth}>
                                 <input onFocus={(e) => { props.setSearthActive(true) }} onBlur={onBlurEvent} onInput={onInputEvent} value={props.textContentSeartah} type="text" />
@@ -159,5 +168,10 @@ export const Header = (props) => {
 };
 
 
+const NavigateNavLink = (props)=>{
+return <li>
+    <NavLink onClick={scrollToTop} to={props.link} className={HeaderStyles.menu__link}><span>{props.text}</span></NavLink>
+    </li>
 
+};
 export default Header;
