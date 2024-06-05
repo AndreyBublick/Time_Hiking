@@ -10,19 +10,24 @@ import { TwoPartBlocks } from "../../components/TwoPartBlocks/TwoPartBlocks";
 
 
 
-export const HomePage = () => {
-    return <>
-        <HeaderContainer />
-        <div className='wrapper'>
 
-            <ITSTimeForHiking />
-            <TitleBlock />
-            <Features />
-            <TwoPartBlocks />
-            <TitleMountains />
-            <BrieflyAboutTheMainThing />
-            <TitleHere />
-        </div>
-        <Footer />
+export const HomePage = () => {
+
+    return <>
+        
+
+
+                <div className='wrapper' >
+                        <ITSTimeForHiking />
+                        <TitleBlock />
+                        <Features />
+                        <TwoPartBlocks />
+                        <TitleMountains />
+                        <BrieflyAboutTheMainThing />
+                        <TitleHere />
+                    </div>
+                
+
+       
     </>
 };

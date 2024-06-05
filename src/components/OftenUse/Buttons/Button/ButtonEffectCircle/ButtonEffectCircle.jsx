@@ -1,7 +1,6 @@
 
 import style from './ButtonEffectCircle.module.scss';
 import { memo, useEffect, useState } from "react";
-import { Transition } from 'react-transition-group';
 import { v4 as uuidv4 } from 'uuid';
 /* import { useSpring, animated } from "react-spring"; */
 

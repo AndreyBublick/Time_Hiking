@@ -8,11 +8,9 @@ import TitleHere from "../../components/TitleHere/TitleHere.jsx";
 
 export const MenuPage = () => {
     return <>
-        <HeaderContainer />
         <div className='wrapper'>
 
             <TitleHere />
         </div>
-        <Footer />
     </>
 };

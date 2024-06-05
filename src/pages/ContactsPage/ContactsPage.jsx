@@ -13,10 +13,10 @@ import { TwoPartBlocks } from "../../components/TwoPartBlocks/TwoPartBlocks.jsx"
 
 export const ContactsPage = () => {
     return <>
-        <HeaderContainer />
-        <div  className='wrapper'>
+{/*         <HeaderContainer />
+ */}        <div  className='wrapper'>
        <Explore />
         </div>
-        <Footer />
+       {/*  <Footer /> */}
     </>
 };

@@ -147,10 +147,10 @@ const Features = memo((props) => {
 
         if (window.innerWidth < 1200) { /* первый параметр точка самой карточки 2.Параметр часть viewport */
             if (index % 2 === 0) {
-
-                return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-left" data-aos-delay="350" className={[styleFeatures.item, 'event'].join(' ')}>
-                    {generateCardBody()}
-                </div>;
+                
+return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-left" data-aos-delay="350" className={[styleFeatures.item, 'event'].join(' ')}>
+    {generateCardBody()}
+</div>;
 
             }
             else {

@@ -1,6 +1,5 @@
 
 import ITSTimeForHikingStyle from './ITSTimeForHiking.module.scss';
-import backgroundBlock from '../../content/images/ITSTimeForHiking/headerBackground_1.png';
 
 
 import React from 'react';

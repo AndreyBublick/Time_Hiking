@@ -1,9 +1,9 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.scss';
 
-import AOS from "aos";
 import "aos/dist/aos.css";
+import { ReactLenis, useLenis } from 'lenis/react';
 
 import './fonts/fontello/css/fontello.css';
 import { useSelector } from 'react-redux';
@@ -14,8 +14,9 @@ import { MenuPage } from './pages/MenuPage/MenuPage.jsx';
 import { StoryPage } from './pages/StoryPage/StoryPage.jsx';
 import { ContactsPage } from './pages/ContactsPage/ContactsPage.jsx';
 
-
-
+import HeaderContainer from './components/Header/HeaderContainer.tsx';
+import { Footer } from './components/Footer/Footer.jsx';
+import Aos from 'aos';
 
 
 export const scrollToTop = () => {
@@ -28,39 +29,38 @@ export const scrollToTop = () => {
 const App = () => {
 
 
-
- 
+  const containerRef = useRef(null);
 
 
 
   useEffect(() => {
-    AOS.init({
+    Aos.init({
       once: true,
       /*  disable: "phone", */
       duration: 700,
       easing: "ease-out-cubic",
     });
   }, []);
-  useEffect(() => {
 
-   
-  }, []);
 
 
 
   const isDarkTheme = useSelector(getIsDarkTheme);
 
-  return (<div id="smooth-wrapper">
-
-    <div id="smooth-content">
-
-
-      <div id={'start-page'} className={[isDarkTheme ? 'App _DARK_theme' : 'App']}>
+  return (
 
 
 
-        <div id='scroll-on-PAGE'>
+<ReactLenis root>
+    <div id={'start-page'} className={[isDarkTheme ? 'App _DARK_theme' : 'App']}>
+      <HeaderContainer />
+      
+        
 
+
+
+        <main>
+          {/* ...your app */}
 
 
 
@@ -77,13 +77,15 @@ const App = () => {
 
           </Routes>
 
-        </div>
+        </main>
 
 
-
-      </div>
+        <Footer />
+     
     </div>
-  </div>
+
+
+    </ReactLenis>
 
   );
 }

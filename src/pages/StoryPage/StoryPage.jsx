@@ -8,11 +8,9 @@ import HeaderContainer from "../../components/Header/HeaderContainer.tsx";
 
 export const StoryPage = () => {
     return <>
-        <HeaderContainer />
         <div  className='wrapper'>
 
             <BrieflyAboutTheMainThing />
         </div>
-        <Footer />
     </>
 };
