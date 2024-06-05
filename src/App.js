@@ -65,8 +65,9 @@ const App = () => {
 
 
           <Routes>
-
-            <Route id="smooth-content" path='/home/' element={<HomePage />} />
+          
+            <Route id="smooth-content" path='/Time_Hiking' element={<HomePage />} />
+            <Route id="smooth-content" path='/home' element={<HomePage />} />
             <Route id="smooth-content" path='/menu' element={<MenuPage />} />
             <Route id="smooth-content" path='/story' element={<StoryPage />} />
             <Route id="smooth-content" path='/contacts' element={<ContactsPage />} />
