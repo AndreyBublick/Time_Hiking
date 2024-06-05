@@ -262,7 +262,7 @@
 }
 
 .item__picture {
-
+overflow: hidden;
     @media (max-width:567px) {
         text-align: center;
 
@@ -275,6 +275,7 @@
 
 
 .item__image {
+    overflow: hidden;
     position      : relative;
     padding-bottom: 100%;
 
@@ -283,6 +284,7 @@
 }
 
 .item__image>img {
+    overflow: hidden;
     /* max-width: 100%; */
     position  : absolute;
     top       : 0;
