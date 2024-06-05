@@ -17,11 +17,11 @@ export const MountainHeader = ({ Child, images, ...props }) => {
     const isDarkTheme = useSelector(getIsDarkTheme);
 
 
-    return <div className={[isDarkTheme?style._Dark:'',,style.mountainHeader].join(' ')}>
+    return <div className={[isDarkTheme?style._Dark:'',style.mountainHeader].join(' ')}>
        
         <div className={[style.title_mountains, style.mountainHeader__title].join(' ')}>
-        {images&& <ImageGallery isRTL={true}  slideOnThumbnailOver={true} lazyLoad={true} showNav={false} showThumbnails={false} useBrowserFullscreen={false} showFullscreenButton={false} showPlayButton={false}
-         slideInterval={10000} slideDuration={2000} autoPlay={true} additionalClass={style.image_gallery}  items={images} />} 
+        {images && <ImageGallery isRTL={true}  slideOnThumbnailOver={true} lazyLoad={true} showNav={false} showThumbnails={false} useBrowserFullscreen={false} showFullscreenButton={false} showPlayButton={false}
+         slideInterval={10000} slideDuration={2000} autoPlay={true} additionalClass={style.title_mountains__image_gallery}  items={images} />} 
 
             <div className={style.title_mountains__body}>
                 <div className={style.title_mountains__container}>

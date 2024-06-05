@@ -4,41 +4,62 @@
 @import '../../../../fonts/fonts';
 
 
-.button{
-  
+.button {
+  position: relative;
+
+ /*  button::before {
+    transition      : 0.3s all;
+    content         : '';
+    top             : 0;
+    left            : 0;
+    width           : 0;
+    height          : 0;
+    transform       : scale(0);
+    position        : absolute;
+    background-color: palegreen;
+    z-index: 100;
+  } */
 }
 
+/* .button {
+
+ / button:hover::before {
+
+    transform: scale(1);
+
+  } 
+} */
 
 .button>button {
-    display: flex;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    align-items: center;
-  border: 3px solid gray;
-  padding-top     : 0;
-  padding-bottom  : 0;
-  min-height      : 1px;
-  height          : auto;
- 
-  padding-left    : clamp(20px,4.9vw,67px);
-  padding-right   : clamp(20px,4.9vw,67px);
+  display                    : flex;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  align-items                : center;
+  border                     : 3px solid gray;
+  padding-top                : 0;
+  padding-bottom             : 0;
+  min-height                 : 1px;
+  height                     : auto;
+
+  padding-left : clamp(20px, 4.9vw, 67px);
+  padding-right: clamp(20px, 4.9vw, 67px);
 
   /* padding: clamp(10px,5vw,50px) clamp(10px,5vw,50px) clamp(10px,5vw,50px) 0; */
 
-  line-height     : clamp(320%,4.9vw,500%);
- 
+  line-height: clamp(320%, 4.9vw, 500%);
+
   background-color: $gray;
   border-radius   : 10vw;
 }
 
 
 .button>button>span {
-  display: flex;
+  display       : flex;
   font-family   : 'Open Sans', "Helvetica Neue", Helvetica, sans-serif;
   font-weight   : 800;
   text-transform: uppercase;
   letter-spacing: 5px;
-  
 
-  @include adapt-value('font-size',23.15,14,0);
-  
+
+  @include adapt-value('font-size', 23.15, 14, 0);
+
 }

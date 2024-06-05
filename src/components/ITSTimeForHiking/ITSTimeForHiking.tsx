@@ -34,9 +34,7 @@ const ITSTimeForHiking = (props: any) => {
             </div>
         </div>
 
-        {/* <div  className={ITSTimeForHikingStyle.ITSTimeForHiking__background}></div>  */}
-           {/*  <img src={backgroundBlockBottom} className={ITSTimeForHikingStyle.ITSTimeForHiking__background_top}/>
-            <img src={backgroundBlockTop} className={ITSTimeForHikingStyle.ITSTimeForHiking__background_bottom}/> */}
+       
         
     </section>;
 };

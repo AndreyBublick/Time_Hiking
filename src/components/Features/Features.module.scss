@@ -50,7 +50,7 @@
 
 .items {
 
-    @include adapt-value('padding-top', 3, 3, 0);
+    /* @include adapt-value('padding-top', 3, 3, 0); */
     @include adapt-value('padding-bottom', 40, 20, 0);
 
     @media (min-width:568px) {
@@ -58,7 +58,6 @@
         flex-wrap: wrap;
 
         /* margin: 0 -43.5px 0; */
-
         @include adapt-value('margin-left', -43.5, 0, 1);
         @include adapt-value('margin-right', -43.5, 0, 1);
 
@@ -92,6 +91,16 @@
             transform       : translate(-50%, 0);
         }
     }
+
+
+    @media (max-width:567px) {
+
+        @include adapt-value('padding-bottom', 100, 25, 0);
+        
+    }
+
+    
+
 
 
 

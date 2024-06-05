@@ -1,10 +1,15 @@
 import React from "react";
 import style from './APairBlock.module.scss';
-import { Button, ConfigProvider } from 'antd';
-import { ButtonMaket } from "../../OftenUse/Buttons/Button/ButtonMaket";
+/* import { Button, ConfigProvider } from 'antd';
+ */import { ButtonEffectCircle } from "../../OftenUse/Buttons/Button/ButtonEffectCircle/ButtonEffectCircle.jsx";
+
+
+
+
 
 
 export const APairBlock = (props) => {
+    
     return <div className={style.content_block}>
 
         <div  className={style.content}>
@@ -21,11 +26,11 @@ export const APairBlock = (props) => {
                            {props.textBody}
                         </p>
                     </div>
-                    <div className={['button', style.content__button].join(' ')}>
+                    <div className={[style.content__button].join(' ')}>
                         {/* <Button><span>read more</span></Button> */}
 
 
-                        <ConfigProvider
+                      {/*   <ConfigProvider
                         theme={{
                             token: {
                                 colorBgContainerDisabled: 'rgb(255, 0, 0,0.0)',
@@ -34,8 +39,7 @@ export const APairBlock = (props) => {
                             },
                             components: {
                                 Button: {
-                                    /* here is your component tokens */
-                                    /*  defaultHoverColor:'#454545', */
+                                   
                                     defaultHoverBg: '#dfb36f',
                                     defaultHoverBorderColor: '#fff',
                                     defaultHoverColor: '#fff',
@@ -47,11 +51,12 @@ export const APairBlock = (props) => {
                                 },
                             },
                         }}
-                    >
+                    > */}
                         
-                        <ButtonMaket textButton={'read more'} />
+                       {/*  <ButtonMaket textButton={'read more'} /> */}
+                        <ButtonEffectCircle onClickFC={()=>{console.log(123);}} textButton={'Read more'}/>
                         
-                    </ConfigProvider>
+                   {/*  </ConfigProvider> */}
 
 
                         

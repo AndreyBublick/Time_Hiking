@@ -4,6 +4,9 @@
 
 @import './general-parametrs';
 
+html,body{
+  
+}
 
 body {
   margin: 0;
@@ -14,7 +17,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-width: 280px;
   overflow-x: hidden;
-
   
 }
 body._block{
@@ -23,6 +25,7 @@ body._block{
 
 
 code {
+  
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
@@ -39,4 +42,7 @@ code {
     
   } 
 }
+
+
+
 

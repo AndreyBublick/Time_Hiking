@@ -5,10 +5,9 @@ import { ConfigProvider, Modal } from 'antd';
 import { memo, useEffect, useState } from 'react';
 
 
-import { ButtonMaket } from '../OftenUse/Buttons/Button//ButtonMaket.jsx';
-
 
 import { getIsDarkTheme } from '../../redux/header-selectors.ts';
+import { ButtonMaket } from '../OftenUse/Buttons/Button/ButtonMaket.jsx';
 
 
 const Features = memo((props) => {

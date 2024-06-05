@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.scss';
 
 import AOS from "aos";
@@ -17,14 +17,21 @@ import { ContactsPage } from './pages/ContactsPage/ContactsPage.jsx';
 
 
 
+
 export const scrollToTop = () => {
   const scrollerElement = document.getElementById('start-page');
   scrollerElement.scrollIntoView({
-      behavior: 'smooth',
+    behavior: 'smooth',
   });
 };
 
 const App = () => {
+
+
+
+ 
+
+
 
   useEffect(() => {
     AOS.init({
@@ -34,32 +41,49 @@ const App = () => {
       easing: "ease-out-cubic",
     });
   }, []);
+  useEffect(() => {
+
+   
+  }, []);
+
 
 
   const isDarkTheme = useSelector(getIsDarkTheme);
-  
-  return (
 
-    <div id={'start-page'} className={[isDarkTheme ? 'App _DARK_theme' : 'App']}>
+  return (<div id="smooth-wrapper">
 
-      
+    <div id="smooth-content">
 
-        <Routes>
 
-          <Route path='/home/' element={<HomePage />} />
-          <Route path='/menu' element={<MenuPage />} />
-          <Route path='/story' element={<StoryPage />} />
-          <Route path='/contacts' element={<ContactsPage />} />
-          
-          <Route path='/' element={<HomePage />} />
+      <div id={'start-page'} className={[isDarkTheme ? 'App _DARK_theme' : 'App']}>
 
 
 
-        </Routes>
-      
+        <div id='scroll-on-PAGE'>
 
 
+
+
+          <Routes>
+
+            <Route id="smooth-content" path='/home/' element={<HomePage />} />
+            <Route id="smooth-content" path='/menu' element={<MenuPage />} />
+            <Route id="smooth-content" path='/story' element={<StoryPage />} />
+            <Route id="smooth-content" path='/contacts' element={<ContactsPage />} />
+
+            <Route path='/' element={<HomePage />} />
+
+
+
+          </Routes>
+
+        </div>
+
+
+
+      </div>
     </div>
+  </div>
 
   );
 }
