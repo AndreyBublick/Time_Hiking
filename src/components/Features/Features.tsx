@@ -2,12 +2,13 @@ import { useSelector } from 'react-redux';
 import styleFeatures from './Features.module.scss';
 import { getFeaturesCardsSelector } from '../../redux/features-selectors.ts';
 import { ConfigProvider, Modal } from 'antd';
-import { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 
 
 
 import { getIsDarkTheme } from '../../redux/header-selectors.ts';
-import { ButtonMaket } from '../OftenUse/Buttons/Button/ButtonMaket.jsx';
+import { ButtonMaket } from '../OftenUse/Buttons/Button/ButtonMaket.tsx';
+import { PopupClassic } from '../OftenUse/Popup/Classic/Classic.tsx';
 
 
 const Features = memo((props) => {
@@ -19,25 +20,27 @@ const Features = memo((props) => {
     const [count, setCount] = useState(1);
     const [isLoadButton, setIsLoadButton] = useState(false);
     const [isDisabledButton, setIsDisabledButton] = useState(false);
-    const [newCardsData, setNewCardsData] = useState([]);
-    const [сards, setCards] = useState([]);
+    const [newCardsData, setNewCardsData] = useState<newCardsDataType[]>([]);
+    /* const [сards, setCards] = useState([]); */
 
     /*     const [pointsEvent, setPointsEvent] = useState([]); */
+
+
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [contentModal, setContentModal] = useState({});
+    const [contentModal, setContentModal] = useState<newCardsDataType>({
+        id:0,
+        cardText:'',
+        cardTitle:'',
+        image:'',
+    });
+
+  
 
 
     const showModal = () => {
+
         setIsModalOpen(true);
 
-    };
-
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-
-    const handleCancel = () => {
-        setIsModalOpen(false);
     };
 
 
@@ -100,7 +103,11 @@ const Features = memo((props) => {
 
 
 
-
+    const setNewDataModal = (item:newCardsDataType)=>{
+        
+        
+        setContentModal({ id:item.id,image: item.image, cardTitle: item.cardTitle, cardText: item.cardText, });
+    };
 
 
 
@@ -112,8 +119,8 @@ const Features = memo((props) => {
 
     let cards = newCardsData.map((item, index, array) => {
 
-        const generateCardBody = (props) => {
-            return <div onClick={() => { showModal(); setContentModal({ image: item.image, title: item.cardTitle, text: item.cardText, }); }} className={styleFeatures.item__body}>
+        const generateCardBody = () => {
+            return <div onClick={()=> {setNewDataModal(item);showModal(); }} className={styleFeatures.item__body}>
 
                 <div className={styleFeatures.item__picture}>
                     <div className={styleFeatures.item__image}>
@@ -147,10 +154,10 @@ const Features = memo((props) => {
 
         if (window.innerWidth < 1200) { /* первый параметр точка самой карточки 2.Параметр часть viewport */
             if (index % 2 === 0) {
-                
-return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-left" data-aos-delay="350" className={[styleFeatures.item, 'event'].join(' ')}>
-    {generateCardBody()}
-</div>;
+
+                return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-left" data-aos-delay="350" className={[styleFeatures.item, 'event'].join(' ')}>
+                    {generateCardBody()}
+                </div>;
 
             }
             else {
@@ -175,8 +182,8 @@ return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-
      }; */
 
 
-    return <section className={[styleFeatures.features,isDarkTheme? styleFeatures._Dark: ''].join(' ')}>
-        <ConfigProvider
+    return <section className={[styleFeatures.features, isDarkTheme ? styleFeatures._Dark : ''].join(' ')}>
+        {/*  <ConfigProvider
             theme={{
 
                 components: {
@@ -203,10 +210,7 @@ return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-
         >
 
             <Modal closeIcon={null} footer={null} title={contentModal.title} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <div onClick={handleOk} className={isDarkTheme ? styleFeatures.item__Icon_dark_theme:styleFeatures.item__Icon_white_theme}>
-                    
-
-                </div>
+                <div onClick={handleOk} className={isDarkTheme ? styleFeatures.item__Icon_dark_theme:styleFeatures.item__Icon_white_theme}></div>
 
                 <div style={{ marginBottom: '20px' }} className={styleFeatures.item__picture}>
                     <div className={styleFeatures.item__image}>
@@ -219,9 +223,14 @@ return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-
 
 
             </Modal>
-        </ConfigProvider>
+        </ConfigProvider> */}{/* isModalOpen */}
+        
+        <PopupClassic isTwoParts={false} setNewDataModal={setNewDataModal} image={contentModal.image} text={contentModal.cardText} id={contentModal.id}
+         title={contentModal.cardTitle} isOpen={isModalOpen}
+         setIsModalOpen={setIsModalOpen} />
 
-        <div className={[styleFeatures.container, 'container'].join(' ')} >
+
+        <div className={[styleFeatures.container, 'container'].join(' ')}>
             <div className={styleFeatures.body}>
                 <div className={[styleFeatures.items, 'features__event_block'].join(' ')}>
                     {cards}
@@ -253,7 +262,7 @@ return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-
                         }}
                     >
 
-                        <ButtonMaket textButton={'Show more'} loading={isLoadButton} disabled={isDisabledButton} onClick={setCountPlus}></ButtonMaket>
+                        <ButtonMaket type={'button'} textButton={'Show more'} loading={isLoadButton} isDisabled={isDisabledButton} onClickFC={setCountPlus}></ButtonMaket>
                         {/* <Button textButton={'Show more'} loading={isLoadButton} disabled={isDisabledButton} onClick={setCountPlus}>Show more</Button> */}
                     </ConfigProvider>
 
@@ -266,3 +275,12 @@ return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-
 });
 
 export default Features;
+
+
+
+export type newCardsDataType = {
+    id: number,
+    image: string,
+    cardTitle: string,
+    cardText: string,
+} 

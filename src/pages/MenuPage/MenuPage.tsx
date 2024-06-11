@@ -1,7 +1,6 @@
 
-import { Footer } from "../../components/Footer/Footer.jsx";
 import HeaderContainer from "../../components/Header/HeaderContainer.tsx";
-
+import React from "react";
 import TitleHere from "../../components/TitleHere/TitleHere.jsx";
 
 

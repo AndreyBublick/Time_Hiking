@@ -2,7 +2,7 @@
 import { memo, useState } from 'react';
 import style from './TitleHere.module.scss';
 import { MountainHeader } from '../TitleMountains/MountainHeader/MountainHeader.jsx';
-import { InputEmail } from '../OftenUse/InputEmail/InputEmail.jsx';
+import { InputEmail } from '../OftenUse/InputEmail/InputEmail.tsx';
 
 
 

@@ -14,6 +14,7 @@ type propsType = {
     textSearthContent:string, 
     toggleActiveModeAC:(isActive:boolean) => toggleActiveModeACType, 
     setTextSearthContentAC:(textSearth:string)=> setTextSearthContentACType;
+    widthScrollBar:number,
 
 };
 
@@ -30,6 +31,8 @@ type ownType = {};
 
 
 const HeaderContainer:FC<propsType> = (props) => {
+    
+    
     let [isSearthActive, setSearthActive] = useState(false);
     let [textSearthContent, setTextSearthContent] = useState(props.textSearthContent);
 
@@ -43,7 +46,7 @@ const HeaderContainer:FC<propsType> = (props) => {
 
 
 
-    return <Header textSearthContent={textSearthContent} setTextSearthContent={setTextSearthContent}
+    return <Header widthScrollBar={props.widthScrollBar} textSearthContent={textSearthContent} setTextSearthContent={setTextSearthContent}
      setSearthActiveFalse={setSearthActiveFalse} isSearthActive={isSearthActive} setSearthActive={setSearthActive}
       isActive={props.isActive} toggleActiveMode={props.toggleActiveModeAC}  setSearthContentText={props.setTextSearthContentAC} />;
 

@@ -3,8 +3,7 @@ import TitleBlockstyle from './TitleBlock.module.scss';
 
 
 type propsType = {
-    title: string,
-    subTitle: string,
+  
 
 };
 

@@ -1,8 +1,8 @@
 
 
 import style from './InputEmail.module.scss';
-import { memo, useEffect, useRef, useState } from "react";
-import { ButtonMaket } from "../Buttons/Button/ButtonMaket.jsx";
+import React, { FC, memo, useEffect, useRef, useState } from "react";
+import { ButtonMaket } from "../Buttons/Button/ButtonMaket.tsx";
 import { ConfigProvider } from 'antd';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -12,7 +12,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 
 
-export const InputEmail = memo(({ placeHolder, ...props }) => {
+export const InputEmail:FC<propsType> = memo(({ placeHolder, ...props }) => {
    /*  const isDarkTheme = useSelector(getIsDarkTheme); */
     const recaptcha = useRef();
     const [valueEmail, setValueEmail] = useState('');
@@ -29,6 +29,7 @@ useEffect(()=>{
     const recaptchaRef = useRef();
     const handleReset = () => {
         setIsGoSend(true);
+        ///@ts-ignore 
         recaptchaRef.current.reset();
         
     };
@@ -112,7 +113,7 @@ useEffect(()=>{
                         }}
                     >
 
-                        <ButtonMaket loading={isLoad} isDisabled={isGoSend} textButton={'subscribe'} type={'submit'} />
+                        <ButtonMaket loading={isLoad} onClickFC={()=>{}} isDisabled={isGoSend} textButton={'subscribe'} type={'submit'} />
                     </ConfigProvider>
                 </div>
 
@@ -128,3 +129,6 @@ useEffect(()=>{
     </form>
 });
 
+type propsType = {
+    placeHolder:string,
+};

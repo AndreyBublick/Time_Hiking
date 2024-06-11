@@ -39,9 +39,9 @@
 
 
     &:nth-child(2n-1)>.content>.two_art_blocks__container {
-        max-width: auto;
-        flex-grow: 1;
-        margin   : 0;
+        max-width   : auto;
+        flex-grow   : 1;
+        margin      : 0;
         /* font-size: 50px; */
     }
 
@@ -156,12 +156,12 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             border-radius : 10vw;
-            overflow: hidden;
+            overflow      : hidden;
 
             padding-left : clamp(20px, 4.9vw, 61px);
             padding-right: clamp(20px, 4.9vw, 61px);
 
-            outline:  3px solid $orange;
+            outline         : 3px solid $orange;
             background-color: $orange;
 
 
@@ -180,10 +180,10 @@
 
         @media (max-width:768px) {
             & {
-                display        : flex;
-                
+                display: flex;
+
                 justify-content: center;
-                
+
             }
         }
 
@@ -195,9 +195,9 @@
 
 
 .two_art_blocks__container {
+    overflow: hidden;
     /* flex-basis: 50%; */
     max-width: 1182px;
-    overflow: hidden;
 
 
     padding: 0 20px;
@@ -216,7 +216,8 @@
 .two_art_blocks__image {
     ////////////////
 
-    overflow-y: hidden;
+    overflow: hidden;
+
 
 
 
@@ -232,12 +233,11 @@
 
     &>.image__body {
 
-        overflow-y: hidden;
 
 
         &>img {
-            max-width: 100%;
-            overflow-y: hidden;
+            width     : 100%;
+            object-fit: cover;
 
             @media (min-width:768px) {
                 position  : absolute;
@@ -254,9 +254,7 @@
 
 
 
-.image{
-    overflow-y: hidden;
-}
+
 
 
 
@@ -270,7 +268,6 @@
 
 
     .content_block:nth-child(2n-1)>.content>.two_art_blocks__container {
-        padding-left: 58px;
         @include adapt-value('padding-left', 58, 20, 0);
     }
 

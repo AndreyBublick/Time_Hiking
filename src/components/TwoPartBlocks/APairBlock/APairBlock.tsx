@@ -1,16 +1,50 @@
-import React from "react";
+import React, { FC, memo, useEffect, useState, } from "react";
 import style from './APairBlock.module.scss';
 /* import { Button, ConfigProvider } from 'antd';
- */import { ButtonEffectCircle } from "../../OftenUse/Buttons/Button/ButtonEffectCircle/ButtonEffectCircle.jsx";
+ */import { ButtonEffectCircle } from "../../OftenUse/Buttons/Button/ButtonEffectCircle/ButtonEffectCircle.tsx";
+import { PopupClassic } from "../../OftenUse/Popup/Classic/Classic.tsx";
+import Aos from "aos";
+import { getIsDarkTheme } from "../../../redux/header-selectors.ts";
+import { useSelector } from "react-redux";
+import { v4 as uuidv4 } from 'uuid';
+
+
+/* import { uuid } from 'uuidv4'; */
+/* import { uuid } from 'uuidv4'; */
+import { newCardsDataType } from "../../Features/Features.tsx";
 
 
 
 
 
-
-export const APairBlock = (props) => {
+export const APairBlock:FC<propsType> = memo ((props) => {
     
-    return <div className={style.content_block}>
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [contentModal, setContentModal] = useState<newCardsDataType>({
+        id:0,
+        cardText:'',
+        cardTitle:'',
+        image:'',
+    });
+    const [castomId,setCastomId] = useState('');
+    
+    const isDarkTheme = useSelector(getIsDarkTheme);/// thema
+
+  
+
+  useEffect(()=>{
+    
+    
+    setCastomId(uuidv4());
+  },[]);
+
+    const showModal = () => {
+
+        setIsModalOpen(true);
+
+    };
+
+    return <div key={castomId} className={style.content_block}>
 
         <div  className={style.content}>
             <div className={style.two_art_blocks__container}>
@@ -54,11 +88,11 @@ export const APairBlock = (props) => {
                     > */}
                         
                        {/*  <ButtonMaket textButton={'read more'} /> */}
-                        <ButtonEffectCircle onClickFC={()=>{console.log(123);}} textButton={'Read more'}/>
+                        <ButtonEffectCircle type={'button'} onClickFC={()=>{showModal();setContentModal({id:contentModal.id,image:props.image, cardText:props.textBody,cardTitle:props.textTitle})}} textButton={'Read more'}/>
                         
                    {/*  </ConfigProvider> */}
 
-
+            <PopupClassic id={contentModal.id} setNewDataModal={setContentModal} isTwoParts={true} title={contentModal.cardTitle} image={contentModal.image} text={contentModal.cardText} isOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
                         
                     </div>
                 </div>
@@ -74,4 +108,10 @@ export const APairBlock = (props) => {
 
 
 
+});
+
+type propsType = {
+    image:string,
+    textTitle:string,
+    textBody:string,
 };

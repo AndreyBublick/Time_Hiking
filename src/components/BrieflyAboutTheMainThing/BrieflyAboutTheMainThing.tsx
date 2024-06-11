@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import style from './BrieflyAboutTheMainThing.module.scss';
-import { Cards } from './Cards/Cards';
+import { Cards } from './Cards/Cards.tsx';
 import { useSelector } from 'react-redux';
 import { getIsDarkTheme } from '../../redux/header-selectors.ts';
 

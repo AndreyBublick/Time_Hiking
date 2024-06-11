@@ -5,9 +5,11 @@ import logoDark from '../../content//images/logoDark.png';
 import { useEffect, useState } from 'react';
 import { Theme } from './Theme/Theme';
 import { getIsDarkTheme } from '../../redux/header-selectors.ts';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { scrollToTop } from '../../App.js';
+import { ConditionsAC } from '../../redux/Conditions-reduce.ts';
+import { getisNotCloseBody } from '../../redux/Conditions-selectors.ts';
 
 
 
@@ -17,9 +19,8 @@ import { scrollToTop } from '../../App.js';
 
 export const Header = (props) => {
 
-
-    
-
+    const isNotCloseBody = useSelector(getisNotCloseBody);
+    const dispatch = useDispatch();
 
     const isDarkTheme = useSelector(getIsDarkTheme);
     const [isShowSearch, setIsShowSearch] = useState(true);
@@ -36,8 +37,6 @@ export const Header = (props) => {
 
         }
     };
-
-
     useEffect(() => {
 
         const checkViewport = () => {
@@ -86,7 +85,7 @@ export const Header = (props) => {
         changePositionTheme();
     }, [window.innerWidth,window.innerHeight]);
    
-
+    
 
 
 
@@ -100,7 +99,6 @@ export const Header = (props) => {
 
 
     };
-
     const onBlurEvent = (e) => {
         let textCeartch = e.target.value;
         props.setSearthActiveFalse(textCeartch);
@@ -111,7 +109,7 @@ export const Header = (props) => {
     }
     const onClickBurger = () => {
 
-
+        dispatch(ConditionsAC.toggleCloseBody(!isNotCloseBody));
         props.toggleActiveMode(!props.isActive);
 
         const body = document.querySelector('body');
@@ -126,7 +124,7 @@ export const Header = (props) => {
 
 
 
-    return <header className={isHeaderLess ? [HeaderStyles.header, HeaderStyles._less, newStyle].join(' ') : [HeaderStyles.header, newStyle].join(' ')}>
+    return <header style={!isNotCloseBody ? {paddingRight:`${props.widthScrollBar}px`}:{paddingRight:`${0}px`}} /* style={ isNotCloseBody ? {paddingRight:`${0}px`}:{paddingRight:`${props.widthScrollBar}px`} } */ className={isHeaderLess ? [HeaderStyles.header, HeaderStyles._less, newStyle].join(' ') : [HeaderStyles.header, newStyle].join(' ')}>
         <div className={HeaderStyles.header__container}>
             <div className={HeaderStyles.header__body}>
                 <div className={HeaderStyles.header__logo}> <img onClick={scrollStartPage} src={isDarkTheme ? logoDark:logo} alt="imageLogo" /></div>

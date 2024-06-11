@@ -1,7 +1,7 @@
 
-import { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import style from './Footer.module.scss';
-import { Links } from './Links/Links.jsx';
+import { Links } from './Links/Links.tsx';
 import { getIsDarkTheme } from '../../redux/header-selectors.ts';
 import { useSelector } from 'react-redux';
 
@@ -14,7 +14,10 @@ import { useSelector } from 'react-redux';
 export const Footer = memo((props) => {
     const isDarkTheme = useSelector(getIsDarkTheme);
 
-    return <footer data-aos="zoom-in" data-aos-delay="600" className={[style.footer,isDarkTheme ? style._Dark:''].join(' ')}>
+
+
+
+    return <footer data-aos="zoom-in" data-aos-anchor-placement="top-bottom" data-aos-delay="600" className={[style.footer,isDarkTheme ? style._Dark:''].join(' ')}>
         <div className={[style.footer__container, 'container'].join(' ')}>
 
             <div className={[style.footer__body,].join(' ')}>

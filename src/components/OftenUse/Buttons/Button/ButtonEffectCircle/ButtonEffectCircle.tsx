@@ -1,17 +1,32 @@
 
 import style from './ButtonEffectCircle.module.scss';
-import { memo, useEffect, useState } from "react";
+import React, { FC, memo, useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { propsTypeButton } from '../ButtonMaket';
 /* import { useSpring, animated } from "react-spring"; */
 
 
 
 
 ///HandleSubmit
-export const ButtonEffectCircle = memo(({ isDisabled, onClickFC, textButton, loading, type, ...props }) => {
+export const ButtonEffectCircle:FC<propsTypeButton> = memo(({ isDisabled, onClickFC, textButton, loading, type}) => {
+
+
+
 
     const [isPCDevice, setIsPCDevice] = useState(true);
-    const [widthPx, setWidthPx] = useState(0);
+    /* const [widthPx, setWidthPx] = useState(0); */
+    const [castomId,setCastomId] = useState('');
+
+
+    useEffect(()=>{
+        
+        
+        
+        setCastomId(uuidv4());
+      },[]);
+
+
 
     useEffect(() => {
         const testDevices = () => {
@@ -26,24 +41,16 @@ export const ButtonEffectCircle = memo(({ isDisabled, onClickFC, textButton, loa
         };
         testDevices();
     }, []);
-    useEffect(() => {
-        /* const calcParametrs = (e) => {
-        
-            const paramsW = e.target.offsetWidth;
-            const paramsH = e.target.offsetHeight;
-    
-    
-    
-            setButtonParametrs({
-                height: paramsH,
-                width: paramsW,
-            });
-    
-    
-        }; */
+   /*  useEffect(() => {
+       
         window.addEventListener('resize', () => { setWidthPx(window.innerWidth) });
-    }, []);
 
+        return ()=>{
+        window.removeEventListener('resize', () => { setWidthPx(window.innerWidth) });
+
+        };
+    }, []);
+ */
 
 
 
@@ -78,7 +85,7 @@ export const ButtonEffectCircle = memo(({ isDisabled, onClickFC, textButton, loa
 
     const addActive = (e) => {
         if (isPCDevice) {
-            if (circlePoint.x !== e.pageX - window.scrollX - e.target.getBoundingClientRect().left & circlePoint.y !== e.pageY - window.scrollY - e.target.getBoundingClientRect().top) {
+            if (circlePoint.x !== e.pageX - window.scrollX - e.target.getBoundingClientRect().left && circlePoint.y !== e.pageY - window.scrollY - e.target.getBoundingClientRect().top) {
                 checkParametrsButtom(e);
                 calcPoint(e);
                 setIsActiveButton(false);
@@ -144,12 +151,13 @@ export const ButtonEffectCircle = memo(({ isDisabled, onClickFC, textButton, loa
 
 
 
+/* console.log(3334444); */
 
 
 
-    return <div className={style.button}>
+    return <div key={castomId} className={style.button}>
 
-        <button type='button' className={isActiveButton ? style._active : ''} onMouseEnter={addActive} onMouseOut={removeActive} onClick={onClickFC} key={uuidv4()} {...props}>
+        <button type='button' className={isActiveButton ? style._active : ''} onMouseEnter={addActive} onMouseOut={removeActive} onClick={onClickFC}  /* {...props} */>
 
 
 

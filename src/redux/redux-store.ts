@@ -4,6 +4,7 @@ import { thunk } from "redux-thunk";
 import featuresReducer from "./features-reducer.ts";
 import brieflyAboutTheMainThingReducer from "./brieflyAboutTheMainThing-reducer.ts";
 import { MountainHeaderReduce } from "./mountainHeader-reducer.ts";
+import Conditions from "./Conditions-reduce.ts";
 
 
 
@@ -15,6 +16,7 @@ let RootReducer = combineReducers({
     features:featuresReducer,
     brieflyAboutTheMainThing:brieflyAboutTheMainThingReducer,
     mountainHeader:MountainHeaderReduce,
+    conditions:Conditions,
 });
 
 const store = createStore(RootReducer, applyMiddleware(thunk));

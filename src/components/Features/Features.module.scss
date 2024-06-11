@@ -357,8 +357,8 @@ overflow: hidden;
 
     @include adapt-value(width, 35, 35, 0);
     @include adapt-value(height, 35, 35, 0);
-    @include adapt-value(top, 20, 20, 0);
-    @include adapt-value(right, 20, 20, 0);
+    @include adapt-value(top, 0, 0, 0);
+    @include adapt-value(right, 0, 0, 0);
 
 
     position: absolute;

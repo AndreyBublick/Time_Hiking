@@ -3,9 +3,7 @@
 @import './mixins';
 
 @import './general-parametrs';
-html,body{
-  
-}
+
 
 body {
   margin: 0;
@@ -17,10 +15,14 @@ body {
   min-width: 280px;
   overflow-x: hidden;
   
+  
+
+  
 }
 body._block{
   overflow: hidden;
 }
+
 
 
 code {
