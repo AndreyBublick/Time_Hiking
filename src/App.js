@@ -14,10 +14,11 @@ import { MenuPage } from './pages/MenuPage/MenuPage.tsx';
 import { StoryPage } from './pages/StoryPage/StoryPage.tsx';
 import { ContactsPage } from './pages/ContactsPage/ContactsPage.tsx';
 
-import HeaderContainer from './components/Header/HeaderContainer.tsx';
+
 import { Footer } from './components/Footer/Footer.tsx';
 import Aos from 'aos';
 import { getisNotCloseBody } from './redux/Conditions-selectors.ts';
+import Header from './components/Header/Header.tsx';
 
 
 
@@ -100,7 +101,7 @@ const App = () => {
 
 
     <div id={'start-page'} style={!isNotCloseBody ? {paddingRight:`${widthScrollBar}px`}:{paddingRight:`${0}px`}} className={[isDarkTheme ? 'App _DARK_theme' : 'App']}>
-      <HeaderContainer widthScrollBar={widthScrollBar} />
+      <Header widthScrollBar={widthScrollBar} />
 
 
 
