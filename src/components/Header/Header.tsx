@@ -124,29 +124,35 @@ export const Header: FC<propsType> = (props) => {
 
 
     };
-    const onBlurEvent = (e:React.FocusEvent<HTMLInputElement>) => {
+    const onBlurEvent = (e: React.FocusEvent<HTMLInputElement>) => {
         let textCeartch = e.target.value;
         setSearthActiveFalse(textCeartch);
         setTextSearthContent(textCeartch);
     }
-    const onInputEvent = (e:React.FocusEvent<HTMLInputElement>) => {
+    const onInputEvent = (e: React.FocusEvent<HTMLInputElement>) => {
         setTextSearthContent(e.target.value);
     }
-    const onClickBurger = () => {
-        dispatch(ConditionsAC.toggleCloseBody(!isNotCloseBody));
-        setToggleActiveMode(!toggleActiveMode);
 
+
+
+    const toggleBlockBody = ()=>{
         const body = document.querySelector('body');
         body?.classList.toggle('_block');
+        dispatch(ConditionsAC.toggleCloseBody(!isNotCloseBody));
+        setToggleActiveMode(!toggleActiveMode);
+    };
+   
+
+    const onClickBurger = () => {
+        
+
+        toggleBlockBody();
 
 
     };
     const onClickLink = () => {
         if (window.innerWidth < 768) {
-            const body = document.querySelector('body');
-        body?.classList.toggle('_block');
-            dispatch(ConditionsAC.toggleCloseBody(!isNotCloseBody));
-            setToggleActiveMode(!toggleActiveMode);
+            toggleBlockBody();
         }
     };
 
