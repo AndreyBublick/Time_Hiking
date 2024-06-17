@@ -34,7 +34,11 @@ export const scrollToTop = () => {
 
 };
 
+
 const App = () => {
+  const bodyRef = useRef();
+  bodyRef.current = document.body;
+
   const lenisRef = useRef();
   const isDarkTheme = useSelector(getIsDarkTheme);/// thema
 /*   const body = useRef(document.querySelector('body')).current;
@@ -98,9 +102,9 @@ const App = () => {
   return (
 
 
+    
 
-
-    <div id={'start-page'} style={!isNotCloseBody ? {paddingRight:`${widthScrollBar}px`}:{paddingRight:`${0}px`}} className={[isDarkTheme ? 'App _DARK_theme' : 'App']}>
+    <div   id={'start-page'} style={!isNotCloseBody ? {paddingRight:`${widthScrollBar}px`}:{paddingRight:`${0}px`}} className={[isDarkTheme ? 'App _DARK_theme' : 'App']}>
       <Header widthScrollBar={widthScrollBar} />
 
 

@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState, } from "react";
+import React, { FC, memo, useCallback, useEffect, useState, } from "react";
 import style from './APairBlock.module.scss';
 /* import { Button, ConfigProvider } from 'antd';
  */import { ButtonEffectCircle } from "../../OftenUse/Buttons/Button/ButtonEffectCircle/ButtonEffectCircle.tsx";
@@ -26,6 +26,9 @@ export const APairBlock:FC<propsType> = memo ((props) => {
         cardTitle:'',
         image:'',
     });
+
+    const onClickEvent = useCallback(()=>{showModal();setContentModal({id:contentModal.id,image:props.image, cardText:props.textBody,cardTitle:props.textTitle})},[]); ;
+
     const [castomId,setCastomId] = useState('');
     
     const isDarkTheme = useSelector(getIsDarkTheme);/// thema
@@ -88,7 +91,7 @@ export const APairBlock:FC<propsType> = memo ((props) => {
                     > */}
                         
                        {/*  <ButtonMaket textButton={'read more'} /> */}
-                        <ButtonEffectCircle type={'button'} onClickFC={()=>{showModal();setContentModal({id:contentModal.id,image:props.image, cardText:props.textBody,cardTitle:props.textTitle})}} textButton={'Read more'}/>
+                        <ButtonEffectCircle type={'button'} onClickFC={onClickEvent} textButton={'Read more'}/>
                         
                    {/*  </ConfigProvider> */}
 

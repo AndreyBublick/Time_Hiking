@@ -1,7 +1,7 @@
 
 
 import style from './InputEmail.module.scss';
-import React, { FC, memo, useEffect, useRef, useState } from "react";
+import React, { FC, memo, useCallback, useEffect, useRef, useState } from "react";
 import { ButtonMaket } from "../Buttons/Button/ButtonMaket.tsx";
 import { ConfigProvider } from 'antd';
 import emailjs from '@emailjs/browser';
@@ -18,7 +18,8 @@ export const InputEmail:FC<propsType> = memo(({ placeHolder, ...props }) => {
     const [valueEmail, setValueEmail] = useState('');
     const [isLoad, setIsLoad] = useState(false);
     const [isGoSend, setIsGoSend] = useState(true);
-  
+
+    const testFC = useCallback(()=>{},[]); 
 
 /* 
 useEffect(()=>{
@@ -113,7 +114,7 @@ useEffect(()=>{
                         }}
                     >
 
-                        <ButtonMaket loading={isLoad} onClickFC={()=>{}} isDisabled={isGoSend} textButton={'subscribe'} type={'submit'} />
+                        <ButtonMaket loading={isLoad} onClickFC={testFC} isDisabled={isGoSend} textButton={'subscribe'} type={'submit'} />
                     </ConfigProvider>
                 </div>
 

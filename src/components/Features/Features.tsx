@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import styleFeatures from './Features.module.scss';
 import { getFeaturesCardsSelector } from '../../redux/features-selectors.ts';
 import { ConfigProvider, Modal } from 'antd';
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 
 
 
@@ -72,7 +72,7 @@ const Features = memo((props) => {
 
 
     };
-    const setCountPlus = () => {
+    const setCountPlus = useCallback(() => {
         /*  if(cardsData.length>count*3){
                     setIsActiveButton((prev) => !prev);
                 
@@ -83,7 +83,7 @@ const Features = memo((props) => {
         setTimeout(() => {
             setCount((prev) => prev + 1);
         }, 2000);
-    }
+    },[]);
 
 
 

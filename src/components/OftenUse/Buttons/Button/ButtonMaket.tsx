@@ -19,6 +19,8 @@ export type propsTypeButton = {
 ///HandleSubmit
 export const ButtonMaket:FC<propsTypeButton> = memo(({ isDisabled, onClickFC, textButton, loading, type }) => {
 
+    
+    
     /* const [isActiveButton,setIsActiveButton] = useState(false);
     
         const addCircle = (e) => {
@@ -31,8 +33,10 @@ export const ButtonMaket:FC<propsTypeButton> = memo(({ isDisabled, onClickFC, te
     
         }; */
 
+        
 
     return <div className={style.button}>
+    
 
         <Button loading={loading} htmlType={type} disabled={isDisabled} onClick={onClickFC} key={uuidv4()} /* {...props} */><span>{textButton}</span></Button>
     </div>
