@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './App.scss';
 
 import "aos/dist/aos.css";
@@ -26,7 +26,7 @@ export const scrollToTop = () => {
   const scrollerElement = document.getElementById('start-page');
 
 
-  scrollerElement.scrollIntoView({
+  scrollerElement?.scrollIntoView({
     behavior: 'smooth',
   });
 
@@ -35,8 +35,8 @@ export const scrollToTop = () => {
 };
 
 
-const App = () => {
-  const bodyRef = useRef();
+export const App = () => {
+  const bodyRef = useRef() as React.MutableRefObject<HTMLElement>;
   bodyRef.current = document.body;
 
   const lenisRef = useRef();
@@ -52,7 +52,7 @@ const App = () => {
 
 
 
-   useEffect(() => {
+/*    useEffect(() => {
     function update(time) {
       isNotCloseBody ? lenisRef.current?.lenis?.start():lenisRef.current?.lenis?.stop();  
 
@@ -64,7 +64,7 @@ const App = () => {
     update();
     
 }, [isNotCloseBody]);
-
+ */
 
 
 
@@ -104,8 +104,14 @@ const App = () => {
 
     
 
-    <div   id={'start-page'} style={!isNotCloseBody ? {paddingRight:`${widthScrollBar}px`}:{paddingRight:`${0}px`}} className={[isDarkTheme ? 'App _DARK_theme' : 'App']}>
-      <Header widthScrollBar={widthScrollBar} />
+    
+
+    
+<div id={'start-page'} style={!isNotCloseBody ? {paddingRight:`${widthScrollBar}px`}:{paddingRight:`${0}px`}} className={isDarkTheme ? 'App _DARK_theme' : 'App'}>
+      
+    
+    
+    <Header widthScrollBar={widthScrollBar} />
 
 
 
@@ -143,4 +149,4 @@ const App = () => {
   );
 }
 
-export default App;
+

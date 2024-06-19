@@ -1,7 +1,7 @@
 
 
 import style from './InputEmail.module.scss';
-import React, { FC, memo, useCallback, useEffect, useRef, useState } from "react";
+import React, { ChangeEvent, FC, FormEventHandler, memo, useCallback, useRef, useState } from "react";
 import { ButtonMaket } from "../Buttons/Button/ButtonMaket.tsx";
 import { ConfigProvider } from 'antd';
 import emailjs from '@emailjs/browser';
@@ -12,9 +12,9 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 
 
-export const InputEmail:FC<propsType> = memo(({ placeHolder, ...props }) => {
+export const InputEmail:FC<inputEmailPropsType> = memo(({ placeHolder, ...props }) => {
    /*  const isDarkTheme = useSelector(getIsDarkTheme); */
-    const recaptcha = useRef();
+   /*  const recaptcha = useRef(); */
     const [valueEmail, setValueEmail] = useState('');
     const [isLoad, setIsLoad] = useState(false);
     const [isGoSend, setIsGoSend] = useState(true);
@@ -37,13 +37,13 @@ useEffect(()=>{
 
 
 
-    const changeInputEmailValue = (e) => {
+    const changeInputEmailValue = (e:ChangeEvent<HTMLInputElement>) => {
 
         setValueEmail(e.target.value);
 
     };
 
-    const sendValueInputEmail = (e) => {
+    const sendValueInputEmail:FormEventHandler<HTMLFormElement> = (e) => {
 
 
         if (!(valueEmail === '') && !(valueEmail.startsWith(' '))) {
@@ -51,7 +51,7 @@ useEffect(()=>{
 
             e.preventDefault();    //This is important, i'm not sure why, but the email won't send without it
 
-            emailjs.sendForm('service_ddi3iyn', 'template_vjw3z28', e.target, 'JATD2Y0X_IKx-MWjM')
+            emailjs.sendForm('service_ddi3iyn', 'template_vjw3z28', e.currentTarget, 'JATD2Y0X_IKx-MWjM')
                 .then((result) => {
                     setValueEmail('');
                     setIsLoad(false);
@@ -130,6 +130,6 @@ useEffect(()=>{
     </form>
 });
 
-type propsType = {
+export type inputEmailPropsType = {
     placeHolder:string,
 };

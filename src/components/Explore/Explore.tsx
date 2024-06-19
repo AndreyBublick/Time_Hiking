@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 import style from './Explore.module.scss';
 
 
 
-export const Explore = (props) => {
+export const Explore = () => {
 
     return <div  className={[style.explore].join(' ')}>
 

@@ -105,7 +105,7 @@ let initialState = {
 
 
 
-const featuresReducer = (state = initialState, action: any) => {
+const featuresReducer = (state = initialState, action: any):typeof initialState => {
 
     switch (action.type) {
         case 1:

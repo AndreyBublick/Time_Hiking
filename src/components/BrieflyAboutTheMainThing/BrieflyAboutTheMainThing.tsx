@@ -6,7 +6,7 @@ import { getIsDarkTheme } from '../../redux/header-selectors.ts';
 
 
 
-export const BrieflyAboutTheMainThing = (props) => {
+export const BrieflyAboutTheMainThing = () => {
 
 const isDarkTheme = useSelector(getIsDarkTheme);
 

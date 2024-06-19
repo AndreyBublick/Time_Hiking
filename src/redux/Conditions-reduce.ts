@@ -1,3 +1,4 @@
+import { DispatchType } from './redux-store';
 
 
 const TOGGLE_CLOSE_BODY = 'TOGGLE_CLOSE_BODY';
@@ -13,18 +14,22 @@ let initialState = {
 
 };
 
+type initialStateType = typeof initialState; 
+
+
 
 export const ConditionsAC = {
 
     toggleCloseBody:(isNotCloseBody:boolean)=>{
         return {type:TOGGLE_CLOSE_BODY,isNotCloseBody:isNotCloseBody,} as const
     },
+   
 
 };
 
 
 
-const Conditions = (state = initialState, action: any) => {
+export const Conditions = (state = initialState, action:ACSType ):initialStateType => {
 
     switch (action.type) {
         case TOGGLE_CLOSE_BODY:
@@ -42,4 +47,9 @@ const Conditions = (state = initialState, action: any) => {
 
 };
 
-export default Conditions;
+
+type ACSType = DispatchType<typeof ConditionsAC>;
+
+
+
+

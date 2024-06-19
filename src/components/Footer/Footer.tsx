@@ -1,5 +1,5 @@
 
-import React, { memo, useEffect } from 'react';
+import React, { memo } from 'react';
 import style from './Footer.module.scss';
 import { Links } from './Links/Links.tsx';
 import { getIsDarkTheme } from '../../redux/header-selectors.ts';
@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 
 
 
-export const Footer = memo((props) => {
+export const Footer = memo(() => {
     const isDarkTheme = useSelector(getIsDarkTheme);
 
 

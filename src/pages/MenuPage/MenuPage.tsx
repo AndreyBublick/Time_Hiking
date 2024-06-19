@@ -1,7 +1,7 @@
 
-import HeaderContainer from "../../components/Header/HeaderContainer.tsx";
+
 import React from "react";
-import TitleHere from "../../components/TitleHere/TitleHere.jsx";
+import {TitleHere} from "../../components/TitleHere/TitleHere.tsx";
 
 
 

@@ -31,7 +31,7 @@ let initialState = {
 
 
 
-const brieflyAboutTheMainThingReducer = (state = initialState, action: any) => {
+const brieflyAboutTheMainThingReducer = (state = initialState, action: any):typeof initialState => {
 
     switch (action.type) {
         case 1:

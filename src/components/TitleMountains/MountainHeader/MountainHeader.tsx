@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import style from './MountainHeader.module.scss';
 
 
@@ -7,12 +7,15 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { useSelector } from 'react-redux';
 import { getIsDarkTheme } from '../../../redux/header-selectors.ts';
+import { imagesType } from '../TitleMountains.tsx';
+import { inputEmailPropsType } from '../../OftenUse/InputEmail/InputEmail.tsx';
 
 
 
 
 
-export const MountainHeader = ({ Child, images, ...props }) => {
+export const MountainHeader:FC<propsType> = ({ images, Child, }) => {
+
 
     const isDarkTheme = useSelector(getIsDarkTheme);
 
@@ -36,8 +39,8 @@ export const MountainHeader = ({ Child, images, ...props }) => {
                                     Ut enim ad minim veniam quis
                                 </p>
                             </div>
-                            {Child && <Child placeHolder={'Your Email'} />}
-                            <div><img src={images} alt="" /></div>
+                             {Child && <Child placeHolder={'Your Email'} />} 
+                            {/*  <div><img src={images} alt="" /></div> */}
                         </div>
                     </div>
 
@@ -51,4 +54,10 @@ export const MountainHeader = ({ Child, images, ...props }) => {
 
 
 
+};
+
+
+type propsType = {
+    images:imagesType[],
+    Child?:FC<inputEmailPropsType>,
 };

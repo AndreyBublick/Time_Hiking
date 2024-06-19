@@ -10,11 +10,11 @@ const initiaState = {
 };
 
 
-const AC = {
+/* const AC = {
     addNewImages: (images: any) => {
         return { type: ADD_NEW_IMAGES, images, } as const;
     },
-};
+}; */
 
 
 export const MountainHeaderReduce = (state = initiaState, action) => {

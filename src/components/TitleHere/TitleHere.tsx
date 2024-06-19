@@ -1,7 +1,7 @@
 
-import { memo, useState } from 'react';
+import React, { memo, useState } from 'react';
 import style from './TitleHere.module.scss';
-import { MountainHeader } from '../TitleMountains/MountainHeader/MountainHeader.jsx';
+import { MountainHeader } from '../TitleMountains/MountainHeader/MountainHeader.tsx';
 import { InputEmail } from '../OftenUse/InputEmail/InputEmail.tsx';
 
 
@@ -10,23 +10,24 @@ import { InputEmail } from '../OftenUse/InputEmail/InputEmail.tsx';
 import image1 from '../../content/images/slider/01.jpg';
 import image2 from '../../content/images/slider/02.jpg';
 import image3 from '../../content/images/slider/05.jpg';
+import { imagesType } from '../TitleMountains/TitleMountains.tsx';
 
 
 
 
 
-const TitleHere = memo((props) => {
-    const [images, setImages] = useState([
+export const TitleHere = memo((props) => {
+    const [images, setImages] = useState<imagesType[]>([
         {
-            original: image1,
+            original : image1 as string,
             thumbnail: "",
         },
         {
-            original: image2,
+            original : image2 as string,
             thumbnail: "",
         },
         {
-            original: image3,
+            original : image3 as string,
             thumbnail: "",
         },],
     );
@@ -43,4 +44,3 @@ const TitleHere = memo((props) => {
     </section>
 });
 
-export default TitleHere;

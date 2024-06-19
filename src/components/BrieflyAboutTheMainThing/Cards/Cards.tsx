@@ -7,7 +7,7 @@ import { getCardsData } from '../../../redux/brieflyAboutTheMainThing-selectors.
 
 
 
-export const Cards:FC<propsType> = ({isDarkTheme,...props}) => {
+export const Cards:FC<propsType> = ({isDarkTheme}) => {
 
     const cardsData = useSelector(getCardsData);
 

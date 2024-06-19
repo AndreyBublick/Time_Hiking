@@ -12,12 +12,12 @@ export type propsTypeButton = {
     textButton:string,
     loading?:boolean,
     type:'submit'|'button'|'reset',
-   /*  props:any, */
+    /* props?:object, */
 };
 
 
 ///HandleSubmit
-export const ButtonMaket:FC<propsTypeButton> = memo(({ isDisabled, onClickFC, textButton, loading, type }) => {
+export const ButtonMaket:FC<propsTypeButton> = memo(({ isDisabled, onClickFC, textButton, loading, type }) => { 
 
     
     

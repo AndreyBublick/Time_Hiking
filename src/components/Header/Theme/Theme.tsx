@@ -3,14 +3,13 @@
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun as faSunREGULAR } from '@fortawesome/free-regular-svg-icons';
-import { faMoon as faMoonREGULAR } from '@fortawesome/free-regular-svg-icons';
+
 import { faSun as faSunSOLID } from '@fortawesome/free-solid-svg-icons';
 import { faMoon as faMoonSOLID } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { getIsDarkTheme } from '../../../redux/header-selectors.ts';
-import { setDarkThemeAC } from '../../../redux/header-reducer.ts';
-import { useEffect, useState } from 'react';
+import { getIsDarkTheme } from '../../../redux/header-selectors.ts'; ///
+import { HeaderACs } from '../../../redux/header-reducer.ts'; ////
+import React, { useEffect } from 'react';
 
 
 
@@ -23,8 +22,9 @@ export const Theme = () => {
     useEffect(() => {
         const value = window.localStorage.getItem('IS_DARK_THEME');
 
-
-        dispatch(setDarkThemeAC(JSON.parse(value)));
+if(value){
+    dispatch(HeaderACs.setDarkThemeAC(JSON.parse(value)));
+}
 
        
     }, []);
@@ -45,11 +45,11 @@ export const Theme = () => {
     };
     const changeThemeOnDark = () => {
         window.localStorage.setItem('IS_DARK_THEME',JSON.stringify(true));
-        dispatch(setDarkThemeAC(true));
+        dispatch(HeaderACs.setDarkThemeAC(true));
     };
     const changeThemeOnWhite = () => {
         window.localStorage.setItem('IS_DARK_THEME',JSON.stringify(false));
-        dispatch(setDarkThemeAC(false));
+        dispatch(HeaderACs.setDarkThemeAC(false));
     };
 
 

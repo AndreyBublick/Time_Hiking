@@ -1,13 +1,11 @@
 import { ConfigProvider, Modal } from "antd";
 import styleFeatures from '../../../Features/Features.module.scss';
 
-import style from './Classic.module.scss';
 
 import { useSelector } from "react-redux";
 import { getIsDarkTheme } from "../../../../redux/header-selectors.ts";
 import React, { FC, memo, useEffect, useState } from "react";
 import { newCardsDataType } from "../../../Features/Features.tsx";
-import { clamp } from "gsap";
 
 
 

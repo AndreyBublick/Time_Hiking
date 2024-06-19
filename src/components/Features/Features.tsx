@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import styleFeatures from './Features.module.scss';
 import { getFeaturesCardsSelector } from '../../redux/features-selectors.ts';
-import { ConfigProvider, Modal } from 'antd';
-import React, { memo, useCallback, useEffect, useState } from 'react';
+import { ConfigProvider } from 'antd';
+import React, {memo, useCallback, useEffect, useState } from 'react';
 
 
 
@@ -11,7 +11,14 @@ import { ButtonMaket } from '../OftenUse/Buttons/Button/ButtonMaket.tsx';
 import { PopupClassic } from '../OftenUse/Popup/Classic/Classic.tsx';
 
 
-const Features = memo((props) => {
+export const Features = memo(() => {
+
+    const createAnimateBlockHOC = (item: newCardsDataType, dataAos: dataAosType, delay: 350 | 150) => {
+        return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos={dataAos} data-aos-delay={delay} className={[styleFeatures.item, 'event'].join(' ')}>
+            {generateCardBody(item)}
+        </div>;
+    };
+
 
     const isDarkTheme = useSelector(getIsDarkTheme);
     ////прокидывает state из контекста
@@ -28,13 +35,13 @@ const Features = memo((props) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [contentModal, setContentModal] = useState<newCardsDataType>({
-        id:0,
-        cardText:'',
-        cardTitle:'',
-        image:'',
+        id: 0,
+        cardText: '',
+        cardTitle: '',
+        image: '',
     });
 
-  
+
 
 
     const showModal = () => {
@@ -42,10 +49,39 @@ const Features = memo((props) => {
         setIsModalOpen(true);
 
     };
+    const generateCardBody = (item: newCardsDataType) => {
+        return <div onClick={() => { setNewDataModal(item); showModal(); }} className={styleFeatures.item__body}>
+
+            <div className={styleFeatures.item__picture}>
+                <div className={styleFeatures.item__image}>
+                    <img src={item.image} alt={'#'} />
+
+                </div>
+
+            </div>
+
+            <div className={styleFeatures.item__content}>
+                <div className={styleFeatures.item__title}>
+                    {item.cardTitle}
+
+                </div>
+                <div className={styleFeatures.item__text}>
+                    {item.cardText}
+
+                </div>
+
+            </div>
+
+
+        </div>
 
 
 
-    const setHowManyCardsShow = (itemsView) => {
+
+    };
+
+
+    const setHowManyCardsShow = (itemsView: number) => {
 
         if (cardsData.length <= count * itemsView) {
             setIsDisabledButton(true);
@@ -83,151 +119,41 @@ const Features = memo((props) => {
         setTimeout(() => {
             setCount((prev) => prev + 1);
         }, 2000);
-    },[]);
-
-
-
-
+    }, []);
 
     useEffect(() => {
 
         addCards();
 
-
-
-
     }, [count]);
 
+    const setNewDataModal = (item: newCardsDataType) => {
 
 
-
-
-
-    const setNewDataModal = (item:newCardsDataType)=>{
-        
-        
-        setContentModal({ id:item.id,image: item.image, cardTitle: item.cardTitle, cardText: item.cardText, });
+        setContentModal({ id: item.id, image: item.image, cardTitle: item.cardTitle, cardText: item.cardText, });
     };
 
 
 
-
-
-
-
-
-
-    let cards = newCardsData.map((item, index, array) => {
-
-        const generateCardBody = () => {
-            return <div onClick={()=> {setNewDataModal(item);showModal(); }} className={styleFeatures.item__body}>
-
-                <div className={styleFeatures.item__picture}>
-                    <div className={styleFeatures.item__image}>
-                        <img src={item.image} alt={'#'} />
-
-                    </div>
-
-                </div>
-
-                <div className={styleFeatures.item__content}>
-                    <div className={styleFeatures.item__title}>
-                        {item.cardTitle}
-
-                    </div>
-                    <div className={styleFeatures.item__text}>
-                        {item.cardText}
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-
-
-        };
-
-
-
+    let cards = newCardsData.map((item:newCardsDataType, index) => {
         if (window.innerWidth < 1200) { /* первый параметр точка самой карточки 2.Параметр часть viewport */
             if (index % 2 === 0) {
-
-                return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade-left" data-aos-delay="350" className={[styleFeatures.item, 'event'].join(' ')}>
-                    {generateCardBody()}
-                </div>;
-
+              return  createAnimateBlockHOC(item, 'fade-left', 350);
             }
             else {
-
-
-                return <div data-aos-anchor-placement='top-bottom' data-aos="fade-right" data-aos-delay="350" key={item.id} className={[styleFeatures.item, 'event'].join(' ')}>
-                    {generateCardBody()}
-                </div>;
+              return  createAnimateBlockHOC(item, 'fade-right', 350);     
             }
         }
-        return <div key={item.id} data-aos-anchor-placement='top-bottom' data-aos="fade" data-aos-delay="150" className={[styleFeatures.item, 'event'].join(' ')}>
-            {generateCardBody()}
-        </div>;
-
-
-
-
+       return createAnimateBlockHOC(item, 'fade', 150);
     });
-
-    /*  const Icon = ()=>{
-         return <div className={styleFeatures._Icon}>X</div>
-     }; */
 
 
     return <section className={[styleFeatures.features, isDarkTheme ? styleFeatures._Dark : ''].join(' ')}>
-        {/*  <ConfigProvider
-            theme={{
+       
 
-                components: {
-
-                    Modal: {
-                        titleFontSize: '2rem',
-
-                        contentBg: isDarkTheme ? '#7f7770' : '#ffffff',
-                        headerBg: isDarkTheme ? '#7f7770' : '#ffffff',
-                        titleColor: isDarkTheme ? '#fff' : '#3f3f3f',
-                        colorText: isDarkTheme ? '#fff' : 'black',
-                        fontSize: '1.6rem',
-                        colorBgMask: 'rgba(50,47,44,0.8)',
-                        colorIcon: isDarkTheme ? '#fff' : 'black',
-                        colorIconHover: 'red',
-
-
-
-
-                    },
-                },
-
-            }}
-        >
-
-            <Modal closeIcon={null} footer={null} title={contentModal.title} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <div onClick={handleOk} className={isDarkTheme ? styleFeatures.item__Icon_dark_theme:styleFeatures.item__Icon_white_theme}></div>
-
-                <div style={{ marginBottom: '20px' }} className={styleFeatures.item__picture}>
-                    <div className={styleFeatures.item__image}>
-                        <img src={contentModal.image} alt={'#'} />
-
-                    </div>
-
-                </div>
-                <p>{contentModal.text}</p>
-
-
-            </Modal>
-        </ConfigProvider> */}{/* isModalOpen */}
-        
         <PopupClassic isTwoParts={false} setNewDataModal={setNewDataModal} image={contentModal.image} text={contentModal.cardText} id={contentModal.id}
-         title={contentModal.cardTitle} isOpen={isModalOpen}
-         setIsModalOpen={setIsModalOpen} />
+            title={contentModal.cardTitle} isOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen} />
 
 
         <div className={[styleFeatures.container, 'container'].join(' ')}>
@@ -274,13 +200,11 @@ const Features = memo((props) => {
 
 });
 
-export default Features;
-
-
 
 export type newCardsDataType = {
     id: number,
     image: string,
     cardTitle: string,
     cardText: string,
-} 
+}
+type dataAosType = 'fade-left' | 'fade-right' | 'fade';

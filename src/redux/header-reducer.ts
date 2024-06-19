@@ -1,5 +1,7 @@
+import { DispatchType } from "./redux-store";
+
 const TOGGLE_ACTIVE_MODE = 'TOGGLE_ACTIVE_MODE';
-const SET_TEXT_SEARTH_CONTENT = 'setTextSearthContent';
+const SET_TEXT_SEARTH_CONTENT = 'SET_TEXT_SEARTH_CONTENT';
 const SET_DARK_THEME = 'SET_DARK_THEME';
 
 
@@ -15,7 +17,7 @@ let initialState = {
 
 type initialStateType = typeof initialState;
 
-const headerReducer = (state = initialState, action: any): initialStateType => {
+const headerReducer = (state = initialState, action: HeaderAcsType): initialStateType => {
 
     switch (action.type) {
         case TOGGLE_ACTIVE_MODE: {
@@ -38,7 +40,25 @@ const headerReducer = (state = initialState, action: any): initialStateType => {
 };
 
 
-export const toggleActiveModeAC = (isActive: boolean): toggleActiveModeACType => {
+export const HeaderACs = {
+    toggleActiveModeAC:(isActive: boolean) => {
+
+        return { type: TOGGLE_ACTIVE_MODE, isActive } as const;
+    },
+    setTextSearthContentAC : (textSearth: string) => {
+        return { type: SET_TEXT_SEARTH_CONTENT, textSearth } as const;
+    },
+    setDarkThemeAC : (isDarkTheme:boolean)=>{
+        return {type:SET_DARK_THEME, isDarkTheme} as const
+        } ,
+
+ };
+
+type HeaderAcsType = DispatchType<typeof HeaderACs>;
+
+
+
+/* export const toggleActiveModeAC = (isActive: boolean): toggleActiveModeACType => {
 
     return { type: TOGGLE_ACTIVE_MODE, isActive };
 };
@@ -64,7 +84,7 @@ return {type:SET_DARK_THEME, isDarkTheme}
 type setDarkThemeACtype = {
     type:typeof SET_DARK_THEME,
     isDarkTheme:boolean,
-};
+}; */
 
 
 

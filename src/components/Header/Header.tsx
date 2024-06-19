@@ -3,11 +3,11 @@ import HeaderStyles from './Header.module.scss';
 import logo from '../../content/images/Place Your Logo Here (Double Click to Edit).png';
 import logoDark from '../../content//images/logoDark.png';
 import React, { FC, useEffect, useState } from 'react';
-import { Theme } from './Theme/Theme.jsx';
+import { Theme } from './Theme/Theme.tsx';
 import { getIsDarkTheme } from '../../redux/header-selectors.ts';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { scrollToTop } from '../../App.js';
+import { scrollToTop } from '../../App.tsx';
 import { ConditionsAC } from '../../redux/Conditions-reduce.ts';
 import { getisNotCloseBody } from '../../redux/Conditions-selectors.ts';
 
@@ -176,16 +176,7 @@ export const Header: FC<propsType> = (props) => {
                 <div className={toggleActiveMode ? HeaderStyles.header__menu + ' ' + HeaderStyles.menu + ' ' + HeaderStyles._active : HeaderStyles.header__menu + ' ' + HeaderStyles.menu}>
                     <ul className={HeaderStyles.menu__list}>
 
-
-
-
                         {!isChangePositionTheme && <Theme />}
-
-
-
-
-
-                        {/*  <li><NavLink onClick={scrollStartPage} to="/home" className={HeaderStyles.menu__link}><span>home</span></NavLink></li> */}
 
                         <NavigateNavLink onClick={onClickLink} link={"/home"} text={'home'} />
                         <NavigateNavLink onClick={onClickLink} link={"/menu"} text={'menu'} />
@@ -204,9 +195,6 @@ export const Header: FC<propsType> = (props) => {
         </div>
     </header>;
 };
-
-
-
 
 
 type NavigateNavLinkPropsType = {
