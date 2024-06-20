@@ -24,7 +24,7 @@
         background: url('../../content/images/BrieflyAboutTheMainThing/Shadow.png') 100% 100%/150px no-repeat;
         @extend %increaseAnimation;
 
-        @media (min-width:567px) {
+        @media (min-width:577px) {
             background: url('../../content/images/BrieflyAboutTheMainThing/Shadow.png') 100% 100%/45% no-repeat;
 
         }
@@ -108,7 +108,7 @@
 
         @include adapt-value('margin-bottom', 62, 15, 0);
 
-        @media (min-width:568px) {
+        @media (min-width:577px) {
             padding: 0 25px;
         }
     }

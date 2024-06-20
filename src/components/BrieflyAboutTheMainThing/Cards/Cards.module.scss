@@ -12,7 +12,7 @@
     &__items {
 
 
-        @media (min-width:568px) {
+        @media (min-width:577px) {
             @include adapt-value('margin-left', -22, -7.5, 1);
             @include adapt-value('margin-right', -22, -7.5, 1);
             display  : flex;
@@ -34,7 +34,7 @@
         @include adapt-value('margin-bottom', 35, 20, 0);
     }
 
-    @media (min-width:568px) {
+    @media (min-width:577px) {
         flex       : 0 0 50%;
         /*  padding: 0 43.5px 0; */
 
@@ -45,7 +45,7 @@
 
     }
 
-    @media (max-width:567px) {
+    @media (max-width:576px) {
         &:not(:last-child) {
             @include adapt-value('margin-bottom', 35, 25, 0);
 

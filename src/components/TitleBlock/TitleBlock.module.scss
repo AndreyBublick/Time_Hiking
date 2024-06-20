@@ -5,7 +5,7 @@
 
 .titleBlock {
     @include adapt-value('padding-top', 47, 20, 0);
-    @include adapt-value('padding-bottom', 82, 20, 0);
+    @include adapt-value('padding-bottom', 82, 5, 0);
 
 }
 
@@ -23,16 +23,16 @@
 
 .title {
     color: #e2a355;
-    @include adapt-value('font-size', 90, 50, 0);
+    @include adapt-value('font-size', 90, 35, 0);
     font-family: 'Open Sans', "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 800;
-    @include adapt-value('margin-bottom', 55, 20, 0);
+    @include adapt-value('margin-bottom', 55, 13, 0);
     text-transform: uppercase;
 }
 
 .subTitle {
     line-height: 130%;
-    @include adapt-value('font-size', 30, 20, 0);
+    @include adapt-value('font-size', 30, 16, 0);
     font-family: 'Open Sans', "Helvetica Neue", Helvetica, sans-serif;
 
     color: #7f7770;

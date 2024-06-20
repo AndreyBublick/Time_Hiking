@@ -17,7 +17,7 @@ const initiaState = {
 }; */
 
 
-export const MountainHeaderReduce = (state = initiaState, action) => {
+export const MountainHeaderReduce = (state = initiaState, action:any) => {
 
     switch (action.type) {
         case 1: {

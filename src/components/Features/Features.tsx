@@ -21,6 +21,8 @@ export const Features = memo(() => {
 
 
     const isDarkTheme = useSelector(getIsDarkTheme);
+
+    
     ////прокидывает state из контекста
     const cardsData = useSelector(getFeaturesCardsSelector);
 
@@ -144,7 +146,7 @@ export const Features = memo(() => {
               return  createAnimateBlockHOC(item, 'fade-right', 350);     
             }
         }
-       return createAnimateBlockHOC(item, 'fade', 150);
+       return createAnimateBlockHOC(item, 'fade-up', 150);
     });
 
 
@@ -207,4 +209,4 @@ export type newCardsDataType = {
     cardTitle: string,
     cardText: string,
 }
-type dataAosType = 'fade-left' | 'fade-right' | 'fade';
+type dataAosType = 'fade-left' | 'fade-right' | 'fade'| 'fade-up';

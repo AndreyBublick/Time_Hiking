@@ -12,7 +12,7 @@ export const Cards:FC<propsType> = ({isDarkTheme}) => {
     const cardsData = useSelector(getCardsData);
 
     const cards = cardsData.map((item) => {
-        return <div data-aos-anchor-placement='top-bottom' data-aos="fade-right" data-aos-delay="500" key={item.id} className={[style.cards__item, style.card].join(' ')}>
+        return <div data-aos-anchor-placement='top-bottom' data-aos="fade-up" data-aos-delay="500" key={item.id} className={[style.cards__item, style.card].join(' ')}>
             <div className={[style.card__body].join(' ')}>
 
                 <div className={[style.card__title].join(' ')}>

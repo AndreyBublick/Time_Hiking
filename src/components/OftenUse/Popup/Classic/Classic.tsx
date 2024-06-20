@@ -33,7 +33,7 @@ export const PopupClassic:FC<propsType> = memo(({ title, image, text,id, isOpen,
     const onResize = () => {
         let widthPx = window.innerWidth;
         if (isTwoPartsState) {
-            if (widthPx <= 567) {
+            if (widthPx <= 576) {
                 setTwoPartsState(false);
             }
             else {
