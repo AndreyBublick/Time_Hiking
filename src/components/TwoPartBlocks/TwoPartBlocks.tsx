@@ -1,16 +1,10 @@
-
-
-
 import { APairBlock } from './APairBlock/APairBlock.tsx';
 import  style from './TwoPartBlocks.module.scss';
-import image from '../../content/images/APairBlocks/Gradient Map_.png';
-import image2 from '../../content/images/APairBlocks/Gradient Map2_.png';
-import React from 'react';
+import image from '../../content/images/APairBlocks/Gradient Map_.webp';
+import image2 from '../../content/images/APairBlocks/Gradient Map_.webp';
 
 
 export const TwoPartBlocks = () => {
-    
-
 
     return <section className={style.two_art_blocks}>
         <div className={style.two_art_blocks__body}>

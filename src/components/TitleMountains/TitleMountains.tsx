@@ -4,10 +4,10 @@ import style from './TitleMountains.module.scss';
 import { Explore } from '../Explore/Explore.tsx';
 
 import { MountainHeader } from './MountainHeader/MountainHeader.tsx';
-import image1 from '../../content/images/slider/03.jpg';
+import image1 from '../../content/images/slider/03.avif';
 
-import image2 from '../../content/images/slider/04.jpg';
-import image3 from '../../content/images/slider/06.jpg';
+import image2 from '../../content/images/slider/04.avif';
+import image3 from '../../content/images/slider/06.avif';
 import { useSelector } from 'react-redux';
 import { getIsDarkTheme } from '../../redux/header-selectors.ts';
 

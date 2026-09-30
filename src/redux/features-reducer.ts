@@ -1,7 +1,7 @@
 
-import img1 from '../content/images/Features/Place_Your_Design_Here_1.png'; 
-import img2 from '../content/images/Features//Place_Your_Design_Here_2.png'; 
-import img3 from '../content/images/Features/Place_Your_Image Here_3.png'; 
+import img1 from '../content/images/Features/Place_Your_Design_Here_1.avif';
+import img2 from '../content/images/Features//Place_Your_Design_Here_2.avif';
+import img3 from '../content/images/Features/Place_Your_Image Here_3.avif';
 
 
 let initialState = {

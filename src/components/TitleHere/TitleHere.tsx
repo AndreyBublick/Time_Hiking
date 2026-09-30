@@ -7,9 +7,9 @@ import { InputEmail } from '../OftenUse/InputEmail/InputEmail.tsx';
 
 
 
-import image1 from '../../content/images/slider/01.jpg';
-import image2 from '../../content/images/slider/02.jpg';
-import image3 from '../../content/images/slider/05.jpg';
+import image1 from '../../content/images/slider/01.avif';
+import image2 from '../../content/images/slider/02.avif';
+import image3 from '../../content/images/slider/05.avif';
 import { imagesType } from '../TitleMountains/TitleMountains.tsx';
 
 
