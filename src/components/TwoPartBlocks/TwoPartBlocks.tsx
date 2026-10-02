@@ -6,6 +6,7 @@ import image2 from '../../content/images/APairBlocks/Gradient Map_.webp';
 
 export const TwoPartBlocks = () => {
 
+
     return <section className={style.two_art_blocks}>
         <div className={style.two_art_blocks__body}>
            <APairBlock image={image} textTitle={'Discount up to 50% All Excursions'} textBody={'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. '} />
